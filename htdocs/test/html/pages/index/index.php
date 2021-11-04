@@ -6,17 +6,17 @@ require_once "get_books.php";
 ?>
 <div id="infor">
 	<div class="table index_page">
+		
 		<div class="row h100">
 			<!--div class="td w33 p3 h100 vtop curs acenter" onmousedown="searchNews(null,300);"-->
+			<div class="td w33 p3 h100 vtop acenter" style="background-color:green;"></div>
+			<div class="td w33 p3 h100 vtop acenter" style="background-color:blue;"></div>
 			<div class="td w33 p3 h100 vtop acenter">
 				<div class="dib w100">
 					<div onmousedown="searchNews(null,300);" class="header"><center>Новые поступления</center></div>
 					<!--div class="spacer h100x"></div-->
 					<div id="newbooks"><!-- не трогать -->
-	
 						<div id="sldr"></div>
-						
-						
 					</div><!-- не трогать -->
 					<a class="button15" id="more_books">Показать еще...</a>
 					<div class="spacer h50x"></div>

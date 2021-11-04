@@ -1,5 +1,5 @@
-				<div class="bottom"></div>
-				
+				<div class="bottom"></div> <!-- для чего кнопка? -->
+<!-- 				
 	<div class="container_12">
         <div class="grid_12">
             
@@ -11,36 +11,56 @@
         color: #6B001C !important;
     }
 </style>
-		<ul id="nav" class="dropdown dropdown-horizontal">
-            <li class="dir "><a href="/ru/pages/index/">О БИБЛИОТЕКЕ</a>
-            <ul>
-				<li><a href="/ru/pages/index/adress">Адрес и время работы</a></li>
+-->
+		
+<nav class="navbar navbar-expand-lg navbar-light bg-light" style="min-height: 40px;">
+  <div class="container-fluid" style="padding-top: 5px;">
+    <!-- 
+	<a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+	 -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="list-style-type:none;font-size:1.5em;font-weight: bold;display: flex;flex-flow: row nowrap;justify-content: space-around;float:none;">
+		<li class="nav-item">
+          <a class="nav-link active" href="#">Читателям</a>
+        </li>
+   
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">О БИБЛИОТЕКЕ</a>
+		<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+				<li><a class="dropdown-item" href="/ru/pages/index/adress">Адрес и время работы</a></li>
         
-				<li><a href="/ru/pages/index/zapis">Запись читателей</a></li>
+				<li><a class="dropdown-item" href="/ru/pages/index/zapis">Запись читателей</a></li>
         
-				<li><a href="/ru/pages/index/info">Общая информация</a></li>
+				<li><a class="dropdown-item" href="/ru/pages/index/info">Общая информация</a></li>
         
-				<li><a href="/ru/pages/index/history">Из истории РГБИ</a></li>
+				<li><a class="dropdown-item" href="/ru/pages/index/history">Из истории РГБИ</a></li>
         
-				<li><a href="/ru/pages/index/otdels">Структура библиотеки</a></li>
+				<li><a class="dropdown-item" href="/ru/pages/index/otdels">Структура библиотеки</a></li>
         
-				<li><a href="/ru/pages/index/req">Реквизиты библиотеки</a></li>
-        
-				<li><a href="http://liart.ru/ru/pages/index/normdocs/">Нормативные документы</a></li>
-        
-				<li><a href="http://liart.ru/ru/pages/index/korrupt/">Противодействие коррупции</a></li>
-        
-				<li><a href="/ru/pages/3d/">3D панорамы библиотеки</a></li>
-			</ul>
-			</li>
-        
-            <li class="dir"><a href="/ru/pages/service/">Читателям</a></li>
-        
-            <li class="dir "><a href="/ru/pages/fonds/">Коллегам</a></li>
-			       
-            <li class="dir "><a href="/ru/pages/catalogs/">Спроси библиографа</a></li>
-        </ul>
+				<li><a class="dropdown-item" href="/ru/pages/index/req">Реквизиты библиотеки</a></li>
 
-        </div>
-    </div>			
-				
+			       <li><hr class="dropdown-divider"></li>
+        
+				<li><a class="dropdown-item" href="http://liart.ru/ru/pages/index/normdocs/">Нормативные документы</a></li>
+        
+				<li><a class="dropdown-item" href="http://liart.ru/ru/pages/index/korrupt/">Противодействие коррупции</a></li>
+        
+				<li><a class="dropdown-item" href="/ru/pages/3d/">3D панорамы библиотеки</a></li>
+		</ul>
+
+		</li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Коллегам</a>
+        </li>
+
+		<li class="nav-item">
+          <a class="nav-link active" href="#">Спроси библиографа</a>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</nav>
