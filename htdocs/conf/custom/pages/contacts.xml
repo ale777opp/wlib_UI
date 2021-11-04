@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<document>
+	<title>Контакты</title>
+	<content>
+		<div class="table mt20x h100 w100">
+			<div class="row">
+				<div class="td w30 bge br5x h100 vtop p20x">
+					<div class="mt20x ml10x">
+						<span class="feedback"></span>
+						<span class="red b">Обратная связь</span>
+					</div>
+					<div class="border1 w100">
+						<br/>
+						<p><span class="red">* </span><span class="b">ФИО:</span></p><p><input id="fio" type="text"/></p>
+						<p><span class="red">* </span><span class="b">EMAIL:</span></p><p><input id="mail" type="text"/></p>
+						<p><span class="red">* </span><span class="b">ТЕМА:</span></p><p><input id="subject" type="text"/></p>
+						<p><span class="red">* </span><span class="b">Сообщение:</span></p><p><textarea id="itbody"></textarea></p>
+						<br/>
+						<div><input type="button" class="button" onmousedown="mailSendToEBA()" value="Отправить"/></div>
+						<br/>
+						<div><span class="red">* </span><span>Обязательно к заполнению</span></div><input id="answere" type="hidden" value="Ваше сообщение отправлено администратору проекта."/>
+					</div>
+				</div>
+				<div class="td h100 vtop content p20x">
+					<div class="imgcont img5 fright">
+						<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAAAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" height="150" width="160"/>
+					</div>
+					<div class="header aright red mb20x pt20x pb30x pr200x">Наименование организации</div>
+					<p><b>Адрес: </b><span>Адрес организации</span></p>
+					<p><b>Телефон: </b><span>+7(499)322-3322</span></p>
+					<p><b>E-mail: </b><span>mail@box.ru</span></p>
+					<div class="spacer"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAAAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" height="20" width="100"/></div>
+					<div class="map">
+						<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAAAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" border="0" hspace="0" vspace="0" alt="" title="" width="1" height="450"/>
+					</div>
+				</div>
+			</div>
+		</div>
+	</content>
+</document>

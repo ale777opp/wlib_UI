@@ -1,0 +1,191 @@
+/*шапка*/
+.header_top
+{
+	background: #6f0000 url(../img/logo_ru.gif) 10% 15px no-repeat;
+}
+.lk
+{
+	/*background:#900;*/
+	height:40px;
+}
+.lk > div
+{
+	width:80%;
+	margin:0 auto;
+	text-align:right;
+	height:30px;
+}
+.lk .top_menu > li:not(:first-child):before
+{
+    content:'';
+	position:absolute;
+	top:12px;
+	left:-4px;
+	height:10px;
+	border-left: 1px solid #fefefe;
+}
+#header
+{
+	width:100%;
+	height:145px;
+	/*background:#900;*/
+	/*z-index:3;*/
+}
+#header > div
+{
+	display:table;
+	width:80%;
+	margin:0 auto;
+}
+#header > div > div
+{
+	display:table-cell;
+	vertical-align:middle;
+	height:100px;
+}
+#index
+{
+	display:inline-block;
+	vertical-align:middle;
+	color:#f0f0f0;
+	margin-left:230px;
+	font-weight:bold;
+}
+.inner
+{
+	cursor:pointer;
+}
+.p
+{
+	font-size:80%;
+	line-height: 200%;
+}
+.n
+{
+	line-height: 140%;
+	text-transform:uppercase;
+	width:300px;
+}
+.z
+{
+	font-style:italic;
+	line-height: 250%;
+	font-size: 80%;
+}
+.top_info
+{
+	text-align:right;
+}
+.top_menu li
+{
+	display:inline-block;	
+	min-height:27px;
+	padding: 8px 12px 0 12px;
+	text-align:left;
+	cursor:pointer;
+	transition: all .5s ease-in-out; 
+}
+.top_info .top_menu li
+{
+	background: #333;
+	border:solid 1px #222;
+}
+.top_info .top_menu  > li
+{
+	background: #222;
+}
+.top_menu span
+{
+	color:#fefefe;
+	display:inline-block;
+	font-size:78%;
+	cursor:pointer;
+	transition: all .5s ease-in-out; 
+}
+.top_info .top_menu span
+{
+	color:#f0f0f0;	
+}
+.top_info .top_menu > li > span
+{
+	text-transform:uppercase;
+}
+.top_info .top_menu li:hover
+{
+	background: #333;
+	box-shadow: inset 0 0 5px 5px rgba(102, 102, 102, 0.1);
+}
+.top_menu  li:hover > span
+{
+	color:#eee;
+}
+.top_menu ul
+{
+	position: absolute;
+	margin: 20px 0 0 0;
+	opacity: 0;
+	visibility: hidden;
+	top: 35px;
+	left: -3000px;
+	width:200px;
+	background: #222;
+	transition: opacity .5s ease-in-out; 
+	z-index:99;
+}
+.top_menu ul span
+{
+	line-height:140%;
+	padding-bottom:8px;
+}
+.top_menu li:hover > ul
+{
+	opacity: 1;
+	visibility: visible;
+	left:100%;
+	margin: 0;
+}
+.top_menu > li:hover > ul
+{
+	left:0;
+}
+.top_menu li:hover > ul.left
+{
+	left:-100%;
+	margin-right:20px;
+}
+.top_menu ul ul
+{
+	top: -1px;
+}
+.top_menu ul li
+{
+	display: block;
+}
+.top_menu ul li:first-child:after
+{
+	content: '';
+	position: absolute;
+	left: 40px;
+	top: -6px;
+	border-left: 6px solid transparent;
+	border-right: 6px solid transparent;
+	border-bottom: 6px solid #000;
+}
+.top_menu ul ul li:first-child:after
+{
+	left: -6px;
+	top: 50%;
+	margin-top: -6px;
+	border-left: 0;	
+	border-bottom: 6px solid transparent;
+	border-top: 6px solid transparent;
+	border-right: 6px solid #000;
+}
+.top_menu ul ul.left li:first-child:after
+{
+	left: 100%;
+	border-right: 0;	
+	border-bottom: 6px solid transparent;
+	border-top: 6px solid transparent;
+	border-left: 6px solid #000;
+}

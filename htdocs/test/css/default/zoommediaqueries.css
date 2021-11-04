@@ -1,0 +1,692 @@
+/*исправления стилей. можно перенести в другой файл*/
+.redstar:before
+{
+	content:'\002A';
+	color:#900;
+	display:inline-block;
+	width:20px;
+	height:20px;
+}
+.dialog2 .pheader
+{
+	padding-left:60px;
+}
+#dateordcontainer.period span, #dateordcontainer.period b
+{
+	font-size:80%;
+	font-weight:normal;
+}
+#dateordcontainer.period span:not(:nth-child(1)), #dateordcontainer.period div:last-child b
+{
+	padding:5px;
+	min-width:30px;
+	text-align:left;
+}
+#dateordcontainer.period span:nth-child(1)
+{
+	display:block;
+	margin-bottom:10px;
+}
+#dateordcontainer.period div:last-child
+{
+	margin-top:10px;
+}
+/*медиа-запросы*/
+/*1280px*/
+@media screen and (max-width: 1280px)
+{
+	#searchhead, .h3, #infor > .pages, .col_title, .index_page, #bottom_info > div, .bases_div, .searchdiv_outer
+	{
+		width:90%;
+		margin-left:5%;
+		margin-right:5%;
+	}
+	.memo
+	{
+		margin-left:5%;
+		margin-right:5%;
+	}
+	[id^='infor']:before, [id^='infor']:after, #bs:before, #bs:after
+	{
+		width: 4%;
+	}
+	[id^='infor']:after, #bs:after
+	{
+		left: 96%;
+	}
+	.tab_to_switch_search span:first-child
+	{
+		margin:0 0 0 4%;
+		padding: 0 2% 0 1%;
+	}
+	.col_content
+	{
+		padding: 0 5% 20px 5%;
+	}
+	.col_content.table.w80
+	{
+		width:90%;
+	}
+}
+/*1024px*/
+@media screen and (max-width: 1024px)
+{
+	.table.orders .row:not(:first-child) .td:first-child
+	{
+		max-width: 100px;
+		overflow: hidden;
+		font-size: 60%;
+	}
+	.tabs span
+	{
+		padding:10px;
+		margin:0 5px 0 0;
+	}
+	.bibcard
+	{
+		width: 40vw;
+		height: 30vh;
+	}
+	.bibcard span
+	{
+		font-size:1.3vw !important;
+	}
+	.bibcard_field
+	{
+		width:auto !important;
+	}
+}/*925px*/
+@media screen and (max-width: 925px)
+{
+	.baselimits [class^='select']
+	{
+		width: 65% !important;
+	}
+	.memo #portionlist, .fright #sortlab
+	{
+		width:auto;
+		padding:0;
+		font-size:80%;
+	}
+	.fright input[type='button'], .fleft input[type='button']
+	{
+		width:auto;
+		padding:0 5px;
+	}
+	.sheet_search_search_php #searchhead div:last-child
+	{
+		max-width: 70%;
+	}
+	.tabs span
+	{
+		padding: 5px;
+		font-size:75%;
+	}
+}
+/*865px*/
+@media screen and (max-width: 865px)
+{
+	[id^='infor']:before, [id^='infor']:after, #bs:before, #bs:after
+	{
+		width: 0;
+		height: 0;
+		background: transparent;
+	}
+	.tab_to_switch_search
+	{
+		margin-bottom:-4px;
+	}
+	.tab_to_switch_search span
+	{
+	  min-width:auto;
+	  width:44%;
+	  margin:0 0 0 1% !important;
+	  overflow:hidden;
+	  white-space:nowrap;
+	}
+	input[type='button']:not([id='sand']):not([id='sor']):not([id='snot']):not([id='saf'])
+	{
+		min-width: 90px;
+		width:auto;
+		padding:0 5px;
+	}
+	.wrapped.ml20x
+	{
+		min-width: auto;
+	}
+	#searchhead, .h3, #infor > .pages, .col_title, .index_page, #bottom_info > div, #bottom_copy > div, .bases_div, .searchdiv_outer
+	{
+		width:98%;
+		margin-left:1%;
+		margin-right:1%;
+	}
+	.col_content.table.w80
+	{
+		width:98%;
+	}
+	.searchdiv .top
+	{
+		padding: 0 1% 10px 1%;
+	}
+	.memo
+	{
+		margin: 0 1% 0 1%;
+	}
+	.col_content
+	{
+		padding:0 1% 20px 1%;
+	}
+}
+/*768px*/
+@media screen and (max-width: 768px)
+{
+	.table, .row, .tr, .td, #footer div, #footer div > div, #footer div > div > div
+	{
+		display: block;
+		width:100% !important;
+		height: auto !important;
+		padding:0;
+	}
+	.td, #bottom_info > div > div > div, #bottom_copy > div > div > div, #footer .social
+	{
+		padding: 10px 0 !important;
+		height: auto !important;
+		max-width: none !important;
+		font-size: 100% !important;
+		text-align:left !important;
+	}
+	#footer
+	{
+		height:auto;
+	}
+	.wrapped.ml20x
+	{
+		margin:0;
+	}
+	#bconstruct
+	{
+		margin: 10px 0 0 0;
+	}
+	#searchrezult > .searchrez:nth-child(1) .fleft
+	{
+		float:none;
+		top:-20px;
+		left:20px;
+		position:absolute;
+		text-align:left;
+	}
+	#searchrezult > .searchrez:nth-child(1) .fright
+	{
+		float:none;
+		top:-20px;
+		right:0;
+		position:absolute;
+		text-align:right;
+	}
+	#searchrezult > .searchrez:nth-child(1) input
+	{
+		z-index:10;
+	}
+	.bg
+	{
+		height: 64vw;
+		margin: 0 0 2% 0;
+	}
+	.index_page [class^='sign'] span
+	{
+		font-size: 7vw;
+	}
+		[class$='unvisible']
+	{
+		display: none !important;
+	}
+	.index_page
+	{
+		width:80% !important;
+	}
+}
+
+/*700px*/
+@media screen and (max-width: 700px)
+{
+	.tabs span
+	{
+		padding: 5px 15px 5px 10px;
+		font-size: 80% !important;;
+	}
+	.bibcard {margin: 1mm; padding: 5mm; width: 125mm; height: 75mm; border:silver 1px solid;}
+	.bibcard_bar {width: 8.5mm !important;}
+	.bibcard_field {width: 106.58mm !important;}
+	.bibcard span {display:block;font: 10pt monospace !important; margin: 0px; padding: 0px;}
+	.block
+	{
+		display:none !important;
+	}
+	.block_
+	{
+		display:block;
+		width:100%;
+		z-index:100;
+	}
+	.block_ span
+	{
+		display:block !important;
+		width:100% !important;
+	}
+	.block_ label
+	{
+		display:block !important;
+		font: normal 140%/100% Arial, Verdana, Tahoma, Helvetica, sans-serif !important;
+		padding:10px 0 10px 55px;
+		margin: 10px;
+	}
+	.block_ label:before
+	{
+		position: absolute; 
+		top:0;
+		left:0;
+		margin: 10px 10px 10px 20px;
+	}
+	#header .s
+	{
+		display: block;
+		margin: 0;
+		height: 45px;
+		padding: 22px 0 0 0;
+		font-size: 4.5vw;
+		line-height: 100%;
+		width: 70%;
+		left: 70px;
+	}
+	.basescontainer
+	{
+		background:transparent;
+		width: 50%;
+		border: none;
+		margin: 1%;
+		height:45px;
+	}
+	#menu_button_filters, #menu_button_rubricator, #menu_button_facets
+	{
+		display:block;
+		background: #ddd;
+		font: normal 120%/200% Tahoma, Verdana, Arial, Helvetica, sans-serif;
+		color:#666;
+		padding: 0 0 0 2%;
+		margin: 0 0 10px 0;
+		cursor:default;
+	}
+	#top_info
+	{
+		position:absolute;
+		display:inline-block;
+		top:80px;
+		right:0;
+		height:102px;
+		background:#fff;
+		width:100%;
+	}
+	#top_menu
+	{
+		width: 200px;
+		height: 100%;
+		right: 0;
+		position: absolute;
+	}
+	#top_menu li:nth-child(1), #top_menu li:nth-child(3)
+	{
+		display:none;
+	}
+	#top_menu > li:nth-child(2) span:after
+	{
+		display:none;
+	}
+	#top_menu li, #top_menu span
+	{
+		float:none !important;
+		width:100% !important;
+	}
+	#top_menu li span
+	{
+		border: none;
+		font-size: 120%;
+		padding: 10px 0 10px 80px !important;
+		margin: 4px 0 4px 0 !important;
+		text-align: left;
+	}
+	#index{
+		display:none;
+	}
+	.bases_div
+	{
+		margin: 4px 0px 4px 0px;
+		padding:0;
+		border:none;
+		border-radius:0px;
+	}
+	.searchdiv .top
+	{
+		width: 35%;
+		position: absolute;
+		top: -40px;
+		right: 0;
+		z-index: 3;
+		padding: 0 2% 0 0;
+	}
+	.searchdiv .top span
+	{
+		font-size: 2.5vw;
+	}
+	#bases_div_inner.block
+	{
+		display:block !important;
+	}
+	#bases_div_inner [class^='select2'] span
+	{
+		font: normal 120%/160% Arial, Verdana, sans-serif !important;
+	}
+	.searchdiv .middle [id$='_search']
+	{
+		padding: 0 !important;
+	}
+	.searchdiv_outer
+	{
+		margin: 0px;
+		border:none;
+		border-radius:0px;
+	}
+	#expand, #simple, #expand_search, #limits_search, #professional_search, .baselimits, #sbuttons
+	{
+		display:none;
+	}
+	#simple_search .labcontainer, #authority_search .labcontainer
+	{
+		position: relative;
+		height: 90px;
+		margin: 0;
+		padding: 2px 0;
+		background: transparent;
+		border: none;
+		border-radius:0;
+		overflow: hidden;
+	}
+	#simple_search .opt, .opt2, #authority_search .opt
+	{
+		width: 96%;
+		margin: 0px auto 0px auto;
+		padding: 0;
+		float: none;
+		border: solid 1px #ccc;
+	}
+	#bases_div_inner .opt2
+	{
+		height:40px;
+	}
+	#simple_search .inp, #authority_search .inp
+	{
+		position: relative;
+		width: 96%;
+		margin: 2px auto;
+		padding: 0;
+		height: 44px;
+		overflow: hidden;
+		border: solid 1px #ccc;
+		background:#fcfcfc;
+	}
+	#authority_search .inp
+	{
+		top:47px;
+	}
+	#simple_search .iLAB, #authority_search .iLAB 
+	{
+		width: 99%;
+		height: 40px;
+		border: none;
+	}
+	#simple_search [class^='select'], #authority_search [class^='select']
+	{
+		position: relative;
+		width: 100%;
+		height:44px;
+		overflow: hidden;
+	}
+	#simple_search [class^='select'] span , #authority_search [class^='select'] span 
+	{
+		width: 100%;
+		display:inline-block;
+		white-space: nowrap;
+		margin: 0 0 0 2px;
+		overflow: hidden;
+		float: none;
+		font-size:120%;
+		line-height:200%;
+		font-weight:normal;
+	}
+	#simple_search [class^='select'] img , #authority_search [class^='select'] img 
+	{
+		margin: 0;
+		float: none;
+		display:none;
+	}
+	#afalfabet
+	{
+		font-size: 140%;
+		line-height:160%;
+		padding:5px;
+	}
+	.searchdiv .spacer img
+	{
+		display:none;
+	}
+	.options, .options2
+	{
+		width: 92%;
+		z-index:99;
+	}
+	.options2
+	{
+		margin-top: 2%;
+		margin-left: 2%;
+	}
+	.options div, .options2  div
+	{
+		font-weight:normal;
+		font-size:120%;
+	}
+	.searchdiv input[class$='button']
+	{
+		position: absolute;
+		display: inline-block;
+		top: 51px;
+		right: 2%;
+		z-index: 90;
+		height: 43px !important;
+	}
+	.bases_div input[type=radio]:checked + label:before
+	{
+		font-size: 5vw;
+		line-height: 2.5vw;
+	}
+	.bases_div label:before
+	{
+		width: 2vw;
+		height: 2vw;
+	}
+	.lib_outer
+	{
+		display:none;
+	}
+	#livesearch p
+	{
+		font: normal 100% Arial, Tahoma, Verdana, Helvetica, sans-serif;
+		cursor: pointer;
+		padding: 10px 0 10px 2px;
+	}
+	#searchhead
+	{
+		min-height:44px;
+		margin-top:10px;
+	}
+	.border1.bgf.w50
+	{
+		width:100%;
+	}
+	.col_content
+	{
+		width:95%;
+	}
+	.col_content .acenter.bge.p20x
+	{
+		background:#fff;
+	}
+	.col_content p
+	{
+		font-size:100%;
+	}
+	[class^='ini'] li
+	{
+		font-size: 140%;
+		line-height: 160%;
+		text-align:left;
+	}
+	.td
+	{
+		width:100%;
+		display:block;
+	}
+	.header
+	{
+		padding:10px !important;
+	}
+	[class^='imgcont'], [class^='buttoncont']
+	{
+		float:none !important;
+		display:inline-block;
+		width:100% !important;
+		text-align:center;
+		padding:0 !important;
+		margin:0 !important;		
+		background-position: center 0 !important;
+	}
+	#searchrezult
+	{
+		width:100% !important;
+	}
+	#tableorder td
+	{
+		margin:0 !important;
+	}
+	#tableorder td p
+	{
+		text-align:left !important;
+	}
+	#filters, .sheet_search_search_php #rubricator, #facets
+	{
+		width:100%;
+		margin: 0;
+		font-size: 100%;
+		line-height:120%;
+	}
+	.sheet_search_search_php #rubricator
+	{
+		background: #faf7f2;
+		float: none;
+		margin: 10px 0 0 0;
+		padding: 10px 0 10px 0;
+	}
+	.sheet_search_search_php #rubricator .title
+	{
+		display:none;
+	}
+	.sheet_search_search_php #rubricator div
+	{
+		left: 10px;
+	}
+	.calendar_container
+	{
+		width:100%;
+		float:none;
+		margin-bottom:20px;
+	}
+	td
+	{
+		vertical-align:top;
+	}
+	.fleft, .fright
+	{
+		float:none !important;
+		width:100% !important;
+	}
+	.sheet_search_history_php #srezults .fright, .sheet_search_history_php #srezults .fleft
+	{
+		padding:5px !important;
+	}
+	.memo #portionlist
+	{
+		margin:5px;
+	}
+	.filters div 
+	{
+		padding: 5px 0 5px 0 !important;
+		margin:0 !important;
+		border:none !important;
+	}
+	.filters div span
+	{
+		display:inline-block !important;
+		width:75% !important;
+		border:none !important;
+	}
+	.filters div i
+	{
+		display:inline-block !important;
+	}
+	.filters div.else
+	{
+		display:none;
+	}
+	.filters div.title
+	{
+		text-align:center;
+		font: normal 100%/160% Arial, Verdana, Tahoma, Helvetica, sans-serif !important;
+	}
+	.filters span, .filters i
+	{
+		font-size:120%;
+		line-height:120%;
+	}
+	.pheader span.unwrap, .pheader span.wrap
+	{
+		display:none;
+	}
+	#menu_button_facets
+	{
+		margin-bottom:30px;
+	}
+	#editq
+	{
+		display:none !important;
+	}
+	[class^='select2']
+	{
+		width:100%;
+	}
+	[class^='select2'] span
+	{
+		width:80%;
+	}
+}
+
+/*670px*/
+@media screen and (max-width: 670px)
+{
+	span[title='card'], span[title='rusmarc']
+	{
+		display:none;
+	}
+	#header .inner
+	{
+		transform: scale(0.6);
+		transform-origin: top;
+	}
+}

@@ -1,0 +1,199 @@
+/*цвета*/
+.highlight
+{
+	background: highlight;
+	color: highlighttext;
+}
+#searchhead .highlight, .searchhead .highlight, .h3 .highlight, .memo .highlight, .searchrez .highlight
+{
+	color: #254375;
+	background:transparent;
+}
+.red, .bases_div input[type=radio]:checked  + label, .filters div.else, .filters span.checked, .sel_, .busy
+{
+	color: #254375;
+}
+.warn, #hint
+{
+	background: #f6e3df;
+}
+.cb, .a, a, .bread:hover, .caption, .new, .gb, .titleslides, .tabs span, .adddiv span[class^="SEE"], .adddiv a[class^="SEE"], .see, .aflink, .aflinkinfo, a.aflinkinfo, span.code, .fel, .aftitle span.b, [class^='afbig'], .afplusimg, .afminusimg, .blue
+{
+	color:#254375;
+}
+.clb, .new2, .new1
+{
+	color: #ccd3ec;
+}
+.cc
+{
+	color:#ccc;
+}
+.c8
+{
+	color:#888;
+}
+.c9, .a:hover, a:hover, .bread, .button2, input.voc, #saf, #sand, #sor, #snot, .col_title, .now, .filters div.else:hover, #afalfabet span, .alfavit span, .afannotimg:before, .afsearchimg:before, .afsmall
+{
+	color:#999;
+	cursor:pointer;
+}
+.c6, .bases_div label, #termin i, .filters i, .filters span.unchecked:hover, .issue, .aftitle, .period_container .button2
+{
+	color:#666;
+}
+.c3, .aftitle span.b b, .iLAB , [class^='select'], [class^='options'], .sel, .baselimits span.title
+{
+	color:#333;
+}
+.c0
+{
+	color:#000;
+}
+.cf, input[class$='button'], .buttoncont .button, .border1 .button, .url, a.url:hover, #limits_search
+{
+	color:#fff;
+}
+.bgf, table.filter tr.c1, table.filter tr.c2, table.filter tr.c, [class^='searchrez'], #main, .border, .iLAB, [class^='options'], .baselimits [class^='select'], .select4, .select4_, .button2
+{
+	background:#fff;
+}
+.bgf0
+{
+	background: #f0f0f0;
+}
+.bgfc
+{
+	background: #fcfcfc;
+}
+.bgf6
+{
+	background: #f6f6f6;
+}
+.bgfc0, table.filter tr.h, table.filter tr.h1, table.filter tr.h2, #searchhead, .searchhead:nth-child(even), [class^='wrapped'], .filters div.title, .h3, .checked:nth-child(even), .unchecked:nth-child(even)
+{
+	background:#f3f4f8;
+}
+.bge
+{
+	background:#eee;
+}
+.bgc
+{
+	background:#ccc;
+}
+.bgd
+{
+	background: #ddd;
+}
+.bg9
+{
+	background: #999;
+}
+.bg3
+{
+	background: #333;
+}
+.bgr, .help, .info, .feedback
+{
+	background: #903030;
+}
+.bglb, .new:hover, .new1:hover, .gb:hover, .new2:hover
+{
+	background: #dbe9f5;
+}
+.b1f
+{
+	border: solid 1px #fff;
+}
+.b1348, .searchrez:nth-child(odd), [class^='wrapped'], .filters, [class^='options'], .memo, .searchrez:nth-child(odd)
+{
+	border: solid 1px #f3f4f8;
+}
+.b1e, .searchrez:nth-child(odd), [class^='wrapped'], .filters, [class^='options'], .memo, .searchrez:nth-child(odd)
+{
+	border: solid 1px #eee;
+}
+.b1d, .button2, input.voc, #saf, #sand, #sor, #snot, .select4, .select4_, table, td, .expl, .warn
+{
+	border: solid 1px #ddd;
+}
+.b1c, .lev3:hover
+{
+	border: solid 1px #ccc;
+}
+.b1r
+{
+	border: solid 1px #993030;
+}
+.b13
+{
+	border: solid 1px #333;
+}
+.b1b, .url, #callbut, input[class$='button']
+{
+	border: solid 1px #28478a;
+}
+.bsh, .button2:hover
+{
+	box-shadow: inset 0 0 5px #28478a !important;
+}
+.brl3x
+{
+	padding-left: 10px;
+}
+.brl3x:before
+{
+	content: '';
+	position:absolute;
+	top:9px;
+	left:12px;
+	height:18px;
+	border-left: solid 5px #903030;
+}
+.brl5x
+{
+	padding-left: 20px;
+}
+.brl5x:before
+{
+	content: '';
+	position:absolute;
+	top:0px;
+	left:0px;
+	height:18px;
+	border-left: solid 5px #903030;
+}
+.br5x
+{
+	border-radius:5px;
+}
+.cf
+{
+	color: #fff;
+}
+.l-glg, input.voc, #saf, #sand, #sor, #snot
+{
+	background: #fff;
+	background: linear-gradient(to bottom, #fff 0%, #ddd 50%, #ddd 51%, #fff 100%);
+}
+.l-gdg
+{
+	background:#5f5f5f;
+	background: linear-gradient(to bottom, #787878 0%, #5e5e5e 50%, #707070 51%, #8f8f8f  100%);
+}
+.l-gg
+{
+	background: #ccc;
+	background: linear-gradient(to bottom, #a8a8a8 0%, #8e8e8e 50%, #a0a0a0 51%, #bfbfbf 100%);
+}
+.l-gr, .buttoncont .button
+{
+	background: #993030;
+	background: linear-gradient(to bottom, #a93333 0%, #900000 50%, #903030 51%, #cc3f3f 100%);
+}
+.l-gb, .url, #callbut, input[class$='button']
+{
+	background: #28478a;
+	background: linear-gradient(to bottom, #28478a 0%, #254375 50%, #254375 51%, #28478a 100%);
+}

@@ -1,0 +1,191 @@
+/*цвета*/
+.highlight
+{
+	background: highlight;
+	color: highlighttext;
+}
+#searchhead .highlight, .searchhead .highlight, .h3 .highlight, .memo .highlight, .searchrez .highlight
+{
+	color: #48a3b6;
+	background:transparent;
+}
+.red, .bases_div input[type=radio]:checked  + label, .filters div.else, .filters span.checked, .busy, .caption, .a, a, .bread:hover, .new, .gb, .titleslides, .adddiv span[class^="SEE"], .adddiv a[class^="SEE"], .see, .aflink, .aflinkinfo, a.aflinkinfo, span.code, .fel, .aftitle span.b, [class^='afbig'], .afplusimg, .afminusimg, .blue
+{
+	color: #48a3b6;
+}
+.help, .info, .feedback
+{
+	background: #48a3b6;
+}
+.warn
+{
+	background: #f6e3df;
+}
+.cb
+{
+	color:#606f90;
+}
+.clb, .new2, .new1
+{
+	color: #ccd3ec;
+}
+.cc
+{
+	color:#ccc;
+}
+.cd
+{
+	color:#ddd;
+}
+.c9, .a:hover, a:hover, .bread, .button2, input.voc, #saf, #sand, #sor, #snot, .col_title, .now, .filters div.else:hover, #afalfabet span, .alfavit span, .afannotimg:before, .afsearchimg:before, .afsmall
+{
+	color:#999;
+	cursor:pointer;
+}
+.c6, .bases_div label, #termin i, .filters i, .filters span.unchecked:hover, .issue, .iLAB , #limits_search, .baselimits span.title, .aftitle, .period_container .button2
+{
+	color:#666;
+}
+.c3, .aftitle span.b b, [class^='select']
+{
+	color:#333;
+}
+.cf, .buttoncont .button, .border1 .button, .url, a.url:hover
+{
+	color:#fff;
+}
+.bgf, table.filter tr.c1, table.filter tr.c, [class^='searchrez'], .border, .iLAB, [class^='options'], .baselimits [class^='select']
+{
+	background:#fff;
+}
+.bgf0
+{
+	background: #f0f0f0;
+}
+.bgfc
+{
+	background: #fcfcfc;
+}
+.bgf6
+{
+	background: #f6f6f6;
+}
+.bge, table.filter tr.h, table.filter tr.h1, .checked:nth-child(even), .unchecked:nth-child(even)
+{
+	background:#eee;
+}
+.bgc
+{
+	background:#ccc;
+}
+.bgd
+{
+	background: #ddd;
+}
+.bg9
+{
+	background: #999;
+}
+.bg3
+{
+	background: #333;
+}
+.bgr
+{
+	background: #903030;
+}
+.bglb, .new:hover, .new1:hover, .gb:hover, .new2:hover
+{
+	background: #dbe9f5;
+}
+.b1f
+{
+	border: solid 1px #fff;
+}
+.b1e, .filters
+{
+	border: solid 1px #eee;
+}
+.b1d, #saf, #sand, #sor, #snot, .select4, .select4_, table, td, .expl, .warn, .memo, [class^='wrapped']
+{
+	border: solid 1px #ddd;
+}
+.b1c, .lev3:hover
+{
+	border: solid 1px #ccc;
+}
+.b13
+{
+	border: solid 1px #333;
+}
+.b1r, .buttoncont .button
+{
+	border: solid 1px #993030;
+}
+.b1b
+{
+	border: solid 1px #606f90;
+}
+.bsh
+{
+	box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.5);
+}
+.brl3x
+{
+	padding-left: 10px;
+}
+.brl3x:before
+{
+	content: '';
+	position:absolute;
+	top:9px;
+	left:12px;
+	height:18px;
+	border-left: solid 5px #903030;
+}
+.brl5x
+{
+	padding-left: 20px;
+}
+.brl5x:before
+{
+	content: '';
+	position:absolute;
+	top:0px;
+	left:0px;
+	height:18px;
+	border-left: solid 5px #903030;
+}
+.br5x
+{
+	border-radius:5px;
+}
+.cf
+{
+	color: #fff;
+}
+.l-glg
+{
+	background: #fff;
+	background: linear-gradient(to bottom, #fff 0%, #ddd 50%, #ddd 51%, #fff 100%);
+}
+.l-gdg
+{
+	background:#5f5f5f;
+	background: linear-gradient(to bottom, #787878 0%, #5e5e5e 50%, #707070 51%, #8f8f8f  100%);
+}
+.l-gg
+{
+	background: #ccc;
+	background: linear-gradient(to bottom, #a8a8a8 0%, #8e8e8e 50%, #a0a0a0 51%, #bfbfbf 100%);
+}
+.l-gr, .buttoncont .button
+{
+	background: #993030;
+	background: linear-gradient(to bottom, #a93333 0%, #900000 50%, #903030 51%, #cc3f3f 100%);
+}
+.l-gb
+{
+	background: #939fc6;
+	background: linear-gradient(to bottom, #c0ccd9 0%, #606f90 50%, #606f90 51%, #c0ccd9 100%);
+}

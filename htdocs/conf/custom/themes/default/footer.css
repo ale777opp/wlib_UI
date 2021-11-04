@@ -1,0 +1,51 @@
+/*подвал*/
+#footer
+{
+	background: #333;
+	min-height: 150px;
+	height:auto;
+	font-size:70%;
+	width:100%;
+}
+#bottom_info
+{
+	display:table-row;
+	background:#333;
+	height:110px;
+	color:#999;
+}
+#bottom_copy
+{
+	display:table-row;
+	background:#999;
+	height:40px;
+	color:#333;
+}
+a.dit, a.sag
+{
+	display:inline-block;
+	height:40px;
+	margin: 0 5px 0 5px;
+	border:0;
+}
+a.dit img, a.sag img
+{
+	border:0;
+}
+a.dit
+{
+	background:url(../img/dit.png) center 10px no-repeat;
+	width:56px;
+}
+a.sag
+{
+	background:url(../img/sag.png) center 10px no-repeat;
+	width:118px;
+}
+.bcounter
+{
+	width:88px;
+	height:31px;
+	display:inline-block;
+	background:url(../img/metrika.gif) center center no-repeat;
+}

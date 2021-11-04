@@ -1,0 +1,83 @@
+/*подвал*/
+#footer
+{
+	width:100%;
+	box-shadow: inset 0px 15px 15px -10px rgba(0,0,0,0.4);
+}
+#bottom_info > div, #bottom_copy > div
+{
+	display:table;
+	width:80%;
+	height:100%;
+	margin:0 auto;
+}
+#bottom_info > div > div, #bottom_copy > div > div
+{
+	display:table-row;
+}
+#bottom_info > div > div > div, #bottom_copy > div > div > div
+{
+	display:table-cell;
+}
+#bottom_info
+{
+	background: #d0cdc0;
+	height:90px;
+	color:#000;
+}
+#go-to-top
+{
+	/*z-index: 99;*/
+    position: fixed;
+    top: auto;
+    right: 3%;
+    bottom: 40px;
+    width: 60px;
+    height: 60px;
+	/*background: #d9d6cf;
+	background: #ccc9c0;*/
+	background:rgba(111,0,0,.5);
+	cursor:pointer;
+	transition: all .2s ease-in-out; 
+	z-index:1;
+}
+.vis
+{
+	visibility:visible;
+    opacity:0.5;
+}
+.invis
+{
+    opacity:0;
+	visibility:hidden;
+}
+#bottom_copy
+{
+	background:#d0cdc0;
+	height:40px;
+}
+#bottom_copy span, #bottom_copy a
+{
+	font-size:70%;
+	color:#000;
+}
+#bottom_copy a:hover
+{
+	color:#eee;
+}
+.bcounter
+{
+	display:inline-block;
+	background-image: url(../img/metrika.gif);
+	background-position: center;
+	background-repeat: no-repeat;
+	width:88px;
+	height:31px;
+	opacity:0.3;
+}
+.bcounter:hover
+{
+	background-image: url(../img/metrika.gif);
+	cursor:pointer;
+	opacity:1;
+}

@@ -1,0 +1,142 @@
+/*шапка*/
+#main_page_menu
+{
+	height:100px;
+	width:100%;
+	background: #28478a;
+}
+#main_page_menu  div
+{
+	display:table;
+	width:1280px;	
+	margin:0 auto;
+	height:100px;
+}
+#main_page_menu div > span
+{
+	display:table-cell;
+	height:100%;
+	color:#fff;
+	vertical-align:middle;
+	font-size:80%;
+	font-weight:bold;
+	text-transform:uppercase;
+	cursor:pointer;
+}
+#main_page_menu div > span:not(:first-child):not(:last-child)
+{
+	white-space:nowrap;
+}
+#main_page_menu div > span:hover
+{
+	text-decoration:underline;
+}
+#main_page_menu div > span:first-child, #main_page_menu div > span:last-child
+{
+	text-transform:none;
+	font-weight:normal;
+}
+#main_page_menu div > span:first-child, #main_page_menu div > span:last-child
+{
+	text-decoration:none;
+}
+#main_page_menu div > span span
+{
+	clear:top;
+	font-size:80%;
+}
+#main_page_menu div > span:last-child
+{
+	text-align:center;
+	width:100px;
+	padding:65px 0 0 0;
+	background: url(../img/blind.gif) center 0 no-repeat;
+	font-size:70%;
+}
+.main_page_logo
+{
+	background: url(../img/main_page_logo.gif) 0 center no-repeat;
+	padding:0 0 0 75px;
+	width:200px;
+}
+#header
+{
+	width:100%;
+	height:10em;
+	height:10vw;
+	min-height:230px;
+	background:#fff;
+}
+#header > div
+{
+	display:table;
+	height:100%;
+	width:1280px;
+	margin:0 auto;
+	height:100%;
+}
+.top_logo
+{
+	display:table-cell;
+	vertical-align:middle;
+	cursor:pointer;
+	width:350px;
+	height:100%;
+}
+.n
+{
+	font-size: 230%;
+	line-height:120%;
+	font-family: Times, serif;
+}
+.z
+{
+	font-size: 150%;
+	line-height:120%;
+	font-family: Times, serif;
+}
+#top_info
+{
+	display:table-cell;
+	vertical-align:middle;
+	text-align:right;
+	height:100%;
+}
+#top_menu, #top_menu ul
+{
+	list-style: none;
+}
+#top_menu
+{
+	display:inline-block;
+}
+#top_menu:before,
+#top_menu:after
+{
+	content: "";
+}
+#top_menu:after
+{
+	clear: both;
+}
+#top_menu li
+{
+	display:inline-block;	
+	text-align:right;
+}
+#top_menu  > li
+{
+	font-size:90%;
+	padding: 12px;
+}
+#top_menu span
+{
+	display:inline-block;
+	padding:2px;
+	color: #666;
+	cursor:pointer;
+	font-size: 130%;
+	font-family: Times, serif;
+	border-bottom: solid 2px #28478a;
+	white-space:nowrap;
+}

@@ -1,0 +1,22 @@
+/*ютф*/
+@media print
+{
+	*
+	{
+		margin:0;
+		padding:0;
+	}
+	body
+	{
+		background: #fff;
+		color: #000;
+	}
+	#excel
+	{
+		display:block;
+	}
+	#header, #searchdiv, #footer, .h3, .col_title, .col_content, [class^='memo'], .unchecked, input, .pheader
+	{
+		display:none !important;
+	}
+}

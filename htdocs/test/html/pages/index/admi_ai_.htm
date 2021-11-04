@@ -1,0 +1,79 @@
+<head>
+<title>ОПАК для читателей Новый интерфейс с приглашением авторизации</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
+<meta http-equiv="cache-control" content="no-cache" />
+</head>
+
+<!--body onload="document.forms[0].submit()"-->
+
+<body onload="goToLocation('privat')">
+
+<!--li><span id="privat" onmousedown="goToLocation(this.id)">Вход</span></li><li class="reg"><span id="regform" onmousedown="goToLocation(this.id)">Регистрация</span></li-->
+<!--body onLoad="setTimeout(() => {
+   document.getElementById('reg_ai').submit();
+}, 500)
+"-->
+
+<!--form id="reg_ai" action="http://opac.liart.ru/wlib/" method="POST">
+<input type="hidden" name="_login" value="RGBIG"/>
+<input type="hidden" name="_password" value="RGBIGE"/>
+<input type="submit" name="send" value="Альтернативный интерфейс поиска в OPAC"/>
+</form-->
+
+
+</body>
+
+
+<div id="infor">
+	<div class="table index_page">
+		<div class="row h100">
+			<div class="td w33 p3 h100 vtop curs acenter" onmousedown="searchNews(null,300);">
+			<div class="td w33 p3 h100 vtop acenter">
+				<div class="dib w100">
+					<div onmousedown="searchNews(null,300);" class="header"><center>Новые поступления в библиотеку за последние 3 недели</center></div>
+					<!--div class="spacer h100x"></div-->
+					<div id="newbooks"><!-- не трогать -->
+	
+						<div id="sldr"></div>
+						
+						
+					</div><!-- не трогать -->
+					<a class="button15" id="more_books">Показать еще...</a>
+					<div class="spacer h50x"></div>
+					<div onmousedown="searchNews(null,300);" class="else1"><span>Список новых поступлений...</span></div>
+					
+				</div>
+				
+				<div id="lstbks"></div>
+						
+				<div id="btn_add" style="clear:both"><a class="button15" id="add_books">Добавить еще...</a></div>
+				
+				
+			</div>
+			
+			
+			<!--div class="td h100 p3 vtop">
+				<div class="header w100">Популярное</div>
+				<div class="table w100">
+					<div class="row h100">
+						<div class="td w50 vtop curs acenter" onmousedown="goToLocation('bookrating');">
+							<div class="dib">
+								<div class="header1">Книги</div>
+								<div id="bookrating"></div>
+								<div class="else1"><span>Еще...</span></div>
+							</div>
+						</div>
+						<div class="td vtop curs acenter" onmousedown="goToLocation('ebookrating');">
+							<div class="dib">
+								<div class="header1">Электронные книги</div>
+								<div id="ebookrating"></div>
+								<div class="else1"><span>Еще...</span></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div-->
+		</div>
+	</div>
+</div>
