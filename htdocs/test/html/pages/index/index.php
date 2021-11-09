@@ -2,7 +2,23 @@
 ///htdocs/wlib/html/pages/index
 include (THEPAGESPATH.'/includes/searchdiv.php');
 require_once "db_auth.php";
-require_once "get_books.php";
+require_once "Db.php";
+
+$con = new Db();
+
+$con ->books();
+$new_Books = $con->data;
+
+$con ->news();
+$news = $con->data;
+
+$con ->events();
+$events = $con->data;
+/*
+echo "<pre>new_Books";print_r($new_Books);echo "</pre>";
+echo "<pre>news";print_r($news);echo "</pre>";
+echo "<pre>events";print_r($events);echo "</pre>";
+*/
 ?>
 <div id="infor">
 	<div class="table index_page">
@@ -11,6 +27,8 @@ require_once "get_books.php";
 			<!--div class="td w33 p3 h100 vtop curs acenter" onmousedown="searchNews(null,300);"-->
 			<div class="td w33 p3 h100 vtop acenter" style="background-color:green;"></div>
 			<div class="td w33 p3 h100 vtop acenter" style="background-color:blue;"></div>
+
+
 			<div class="td w33 p3 h100 vtop acenter">
 				<div class="dib w100">
 					<div onmousedown="searchNews(null,300);" class="header"><center>Новые поступления</center></div>
@@ -60,7 +78,7 @@ require_once "get_books.php";
 
 <script type="text/javascript">
 
-	var data = <?php echo $con->data; ?>;
+	var data = <?php echo $new_Books; ?> // $new_Books $con->data
 
 	var slider = {};
 
