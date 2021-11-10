@@ -1,53 +1,45 @@
 <?php 
 ///htdocs/wlib/html/pages/index
 include (THEPAGESPATH.'/includes/searchdiv.php');
-require_once "db_auth.php";
-require_once "Db.php";
+require_once "get_books.php";
 
 $con = new Db();
+//var_dump($con);
+$con->books();
+$books=$con->data;
 
-$con ->books();
-$new_Books = $con->data;
 
-$con ->news();
-$news = $con->data;
-
-$con ->events();
-$events = $con->data;
-/*
-echo "<pre>new_Books";print_r($new_Books);echo "</pre>";
-echo "<pre>news";print_r($news);echo "</pre>";
-echo "<pre>events";print_r($events);echo "</pre>";
-*/
 ?>
 <div id="infor">
 	<div class="table index_page">
-		
 		<div class="row h100">
+
 			<!--div class="td w33 p3 h100 vtop curs acenter" onmousedown="searchNews(null,300);"-->
-			<div class="td w33 p3 h100 vtop acenter" style="background-color:green;"></div>
-			<div class="td w33 p3 h100 vtop acenter" style="background-color:blue;"></div>
-
-
+			<div class="td w33 p3 h100 vtop acenter" style="background-color:green;">
+			</div>
+			<div class="td w33 p3 h100 vtop acenter" style="background-color:blue;">
+			</div>
 			<div class="td w33 p3 h100 vtop acenter">
+			
 				<div class="dib w100">
 					<div onmousedown="searchNews(null,300);" class="header"><center>Новые поступления</center></div>
 					<!--div class="spacer h100x"></div-->
 					<div id="newbooks"><!-- не трогать -->
+	
 						<div id="sldr"></div>
+											
 					</div><!-- не трогать -->
 					<a class="button15" id="more_books">Показать еще...</a>
 					<div class="spacer h50x"></div>
 					<div onmousedown="searchNews(null,300);" class="else1"><span>Список новых поступлений...</span></div>
-					
 				</div>
 				
 				<div id="lstbks"></div>
 						
 				<!--div id="btn_add" style="clear:both"><a class="button15" id="add_books">Добавить еще...</a></div-->
-				<div id="btn_add" style="clear:both"><a class="button15" id="add_books"></a></div>
-				
-				
+				<div id="btn_add" style="clear:both">
+					<a class="button15" id="add_books"></a>
+				</div>
 			</div>
 			
 			
@@ -78,7 +70,7 @@ echo "<pre>events";print_r($events);echo "</pre>";
 
 <script type="text/javascript">
 
-	var data = <?php echo $new_Books; ?> // $new_Books $con->data
+	var data = <?php echo json_encode($books); ?>;
 
 	var slider = {};
 
