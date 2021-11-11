@@ -261,7 +261,7 @@ table.filter tr.h td, table.filter tr.h1 td, table.filter tr.h2 td
 	border-bottom:solid 1px #ddd;
 	text-align:left;
 	font-family:Times, serif;
-	color:#6c000c;
+	/* color:#6c000c; цвет текста заголовков */
 }
 .header1
 {

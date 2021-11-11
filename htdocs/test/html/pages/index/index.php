@@ -15,14 +15,26 @@ $books=$con->data;
 		<div class="row h100">
 
 			<!--div class="td w33 p3 h100 vtop curs acenter" onmousedown="searchNews(null,300);"-->
-			<div class="td w33 p3 h100 vtop acenter" style="background-color:green;">
+			<div class="td w33 p3 h100 vtop acenter" > <!-- style="background-color:green;" -->
+				<div class="dib w100">
+					<div class="header">
+						<center>Сегодня в РГБИ</center> 
+						<hr>
+					</div>
+				</div>	
 			</div>
-			<div class="td w33 p3 h100 vtop acenter" style="background-color:blue;">
+			<div class="td w33 p3 h100 vtop acenter"> <!--  style="background-color:blue;" -->
+				<div class="dib w100">
+					<div class="header">
+						<center>Новости</center> 
+						<hr>
+					</div>
+				</div>	
 			</div>
 			<div class="td w33 p3 h100 vtop acenter">
 			
 				<div class="dib w100">
-					<div onmousedown="searchNews(null,300);" class="header"><center>Новые поступления</center></div>
+					<div onmousedown="searchNews(null,300);" class="header"><center>Из новых поступлений</center></div>
 					<!--div class="spacer h100x"></div-->
 					<div id="newbooks"><!-- не трогать -->
 	
