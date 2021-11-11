@@ -1,23 +1,36 @@
 <?php 
 ///htdocs/wlib/html/pages/index
 include (THEPAGESPATH.'/includes/searchdiv.php');
-require_once "get_books.php";
+require_once "get_page_info.php";
 
 $con = new Db();
 //var_dump($con);
 $con->books();
 $books=$con->data;
 
+$con->events();
+$events=$con->data;
+
+$con->news();
+$news=$con->data;
 
 ?>
+<style>
+	.widget{
+		font-size:0.8em;
+	}	
+	.widget >p >img{
+		font-size:0.5em;
+	}
+</style>	
 <div id="infor">
 	<div class="table index_page">
 		<div class="row h100">
 
 			<!--div class="td w33 p3 h100 vtop curs acenter" onmousedown="searchNews(null,300);"-->
-			<div class="td w33 p3 h100 vtop acenter" > <!-- style="background-color:green;" -->
+			<div class="td w33 p3 h100 vtop acenter">
 				<div class="dib w100">
-					<div class="header">
+					<div class="header" id="events_container">
 						<center>Сегодня в РГБИ</center> 
 						<hr>
 					</div>
@@ -25,10 +38,13 @@ $books=$con->data;
 			</div>
 			<div class="td w33 p3 h100 vtop acenter"> <!--  style="background-color:blue;" -->
 				<div class="dib w100">
-					<div class="header">
+					<div class="header" id="news_container">
 						<center>Новости</center> 
 						<hr>
+					<img src="http://192.168.1.18/media/uploads/newsavatars/2021/11/1dccb85c23264bdcaafa6d00dea62bd2.jpg" alt="аватар img">
 					</div>
+					<!-- http://192.168.1.18/media/uploads/newsavatars/2021/11/1dccb85c23264bdcaafa6d00dea62bd2.jpg -->
+					<!-- http://192.168.1.18/media/files/img/2021/09112021/1.jpg -->
 				</div>	
 			</div>
 			<div class="td w33 p3 h100 vtop acenter">
@@ -80,7 +96,66 @@ $books=$con->data;
 	</div>
 </div>
 
-<script type="text/javascript">
+<script type="text/javascript"> 
+/*
+ const createEl = (id, text, tag, _class) => {
+  const el = document.createElement(tag)
+  el.id = id
+  el.className = _class
+  el.textContent = text
+  return el
+}
+*/
+//let books = <?php echo json_encode($books); ?>;
+let events = <?php echo json_encode($events); ?>;
+let news = <?php echo json_encode($news); ?>;
+
+let news_container = document.getElementById('news_container');
+let events_container = document.getElementById('events_container');
+
+let htmlNewsObject = document.createElement('div');
+//let htmlBooksObject = document.createElement('div');
+let htmlEventsObject = document.createElement('div');
+
+let j =3;
+
+htmlNewsObject.innerHTML = news[j]['content'];
+//htmlBooksObject.innerHTML = books[j]['content'];
+htmlEventsObject.innerHTML = events[j]['content'];
+
+htmlNewsObject.className = "widget";
+//htmlBooksObject.className = "widget";
+htmlEventsObject.className = "widget";
+
+htmlNewsObject.id = "news_content";
+//htmlBooksObject.id = "books";
+htmlEventsObject.id = "events_content";
+/*
+htmlNewsObject.style = "width:32%;background-color:lightgreen;";
+//htmlBooksObject.style = "width:32%;background-color:yellow;";
+htmlEventsObject.style = "width:32%;background-color:green;";
+*/
+news_container.appendChild(htmlNewsObject);
+//content.appendChild(htmlBooksObject);
+events_container.appendChild(htmlEventsObject);
+
+let news_content = document.getElementById('news_content');
+let events_content = document.getElementById('events_content');
+
+//createEl = (id, text = "<span>Еще...</span>", tag = 'div', _class = 'else1'); 
+
+let htmlContinueObject1 = document.createElement('div');
+htmlContinueObject1.className = "else1";
+htmlContinueObject1.innerHTML = "<span>Еще...</span>";
+
+let htmlContinueObject2 = document.createElement('div');
+htmlContinueObject2.className = "else1";
+htmlContinueObject2.innerHTML = "<span>Еще...</span>";
+
+news_content.append(htmlContinueObject1);
+events_content.append(htmlContinueObject2);
+
+//-------------------------------------
 
 	var data = <?php echo json_encode($books); ?>;
 
@@ -104,7 +179,7 @@ $books=$con->data;
 	
 	//счетчики для слайдера
 	slider.start = 0;
-	slider.end = 3;
+	slider.end = 2;
 	
 	
 

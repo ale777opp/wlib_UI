@@ -251,8 +251,8 @@ table.filter tr.h td, table.filter tr.h1 td, table.filter tr.h2 td
 }
 .index_page > div > div:first-child
 {
-	background:rgba(253,249,237,1.0);
-	border-right:solid 10px rgba(246,243,226,0.9);
+	background:rgba(247,248,247,1.0);
+	border-right:solid 10px rgba(240,242,236,0.9);
 }
 .header
 {
@@ -269,7 +269,7 @@ table.filter tr.h td, table.filter tr.h1 td, table.filter tr.h2 td
 	font-family:Times, serif;
 	font-size:120%;
 	line-height:700%;
-	color:#6c000c;
+	//color:#6c000c;
 	height:100px;
 	/*border-bottom:solid 1px #ddd;*/
 }
@@ -278,7 +278,7 @@ table.filter tr.h td, table.filter tr.h1 td, table.filter tr.h2 td
 	font-family:Times, serif;
 	font-size: 100%;
 	font-style:italic;
-	color:#6c000c;
+	//color:#6c000c;
 	text-align:right;
 	height:150px;
 	text-decoration:underline;

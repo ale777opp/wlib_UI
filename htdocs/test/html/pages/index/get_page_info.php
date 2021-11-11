@@ -19,13 +19,13 @@ class Db{
 		$this->pdo->beginTransaction();
         $stmt = $this->pdo->prepare($query);
         $stmt->execute();
-        $result = $stmt->fetchAll();
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
         $this->pdo->commit();
 		return $result;
 	}
 		
     public function __construct(){
-        //echo "конструктор работает #2";
+        //echo "конструктор работает #3";
         $this ->db =[
             'dbhost' => DBHOST,
             'dbport' => DBPORT,
@@ -42,7 +42,7 @@ class Db{
 		   SELECT newinlib_itemcontent.id,newinlib_itemcontent.title,newinlib_itemcontent.content, newinlib_item.avatar_img_name 
 		   FROM newinlib_itemcontent 
 		   JOIN newinlib_item ON newinlib_itemcontent.item_id = newinlib_item.id
-		   ORDER BY id DESC LIMIT 10
+		   ORDER BY id DESC LIMIT 300
 	   ');
     }
 
@@ -56,7 +56,7 @@ class Db{
 
 	public function news(){
 		$this->data = $this->pdo_query('
-		   SELECT news_news.id,news_news.create_date,news_news.title,news_news.content, news_news.show_avatar
+		   SELECT news_news.id,news_news.create_date,news_news.title,news_news.content, news_news.avatar_img_name
 		   FROM news_news ORDER BY id DESC LIMIT 10');
 	}
     
