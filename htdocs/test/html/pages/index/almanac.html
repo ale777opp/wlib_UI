@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>grid</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        #grid_container {
+            /*
+			background-color: gray;
+			*/
+            height: 86vh;
+            width: 1400px;
+            margin: 10px auto;
+            text-align: center;
+            display: grid;
+            grid-gap: 0.5vw;
+            grid-template-areas: "menu 	  menu     	menu" "gap  	  playbill 	gap3" "gap  	  playbill 	books" "events   playbill 	books" "events   news 		books" "events   news 		books" "events   news 		books" "calendar news 		gap1" "calendar gap2 		gap1";
+            grid-template-columns: 5fr 8fr 6fr;
+            grid-template-rows: repeat(9, 80px);
+        }
+        
+        #menu {
+            grid-area: menu;
+            background-color: red;
+            opacity: 0.2;
+        }
+        
+        #gap3 {
+            grid-area: gap3;
+            background-color: yellow;
+        }
+        
+        #gap {
+            grid-area: gap;
+            background-color: yellow;
+        }
+        
+        #gap1 {
+            grid-area: gap1;
+            background-color: yellow;
+        }
+        
+        #gap2 {
+            grid-area: gap2;
+            background-color: yellow;
+        }
+        
+        #playbill {
+            grid-area: playbill;
+            background-color: lightgreen;
+        }
+        
+        #books {
+            grid-area: books;
+            background-color: violet;
+        }
+        
+        #events {
+            grid-area: events;
+            background-color: pink;
+        }
+        
+        #news {
+            grid-area: news;
+            background-color: green;
+        }
+        
+        #calendar {
+            grid-area: calendar;
+            background-color: blue;
+        }
+    </style>
+    <style>
+        #calendar2 {
+            width: 100%;
+            font: monospace;
+            line-height: 1.2em;
+            font-size: 15px;
+            text-align: center;
+        }
+        
+        #calendar2 thead tr:last-child {
+            font-size: small;
+            color: rgb(85, 85, 85);
+        }
+        
+        #calendar2 thead tr:nth-child(1) td:nth-child(2) {
+            color: rgb(50, 50, 50);
+        }
+        
+        #calendar2 thead tr:nth-child(1) td:nth-child(1):hover,
+        #calendar2 thead tr:nth-child(1) td:nth-child(3):hover {
+            cursor: pointer;
+        }
+        
+        #calendar2 tbody td {
+            color: rgb(44, 86, 122);
+        }
+        
+        #calendar2 tbody td:nth-child(n+6),
+        #calendar2 .holiday {
+            color: rgb(231, 140, 92);
+        }
+        
+        #calendar2 tbody td.today {
+            background: rgb(220, 0, 0);
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="grid_container">
+        <div id='menu'>menu</div>
+        <div id='gap'>gap</div>
+        <div id='gap1'>gap1</div>
+        <div id='gap2'>gap1</div>
+        <div id='gap3'>gap2</div>
+        <div id='playbill'>playbill</div>
+        <div id='books'>books</div>
+        <div id='events'>events</div>
+        <div id='news'>news</div>
+        <div id='calendar'>calendar
+            <table id="calendar2">
+                <thead>
+                    <tr>
+                        <td>‹
+                            <td colspan="5">
+                                <td>›
+                                    <tr>
+                                        <td>Пн
+                                            <td>Вт
+                                                <td>Ср
+                                                    <td>Чт
+                                                        <td>Пт
+                                                            <td>Сб
+                                                                <td>Вс
+                                                                    <tbody>
+            </table>
+        </div>
+    </div>
+    <script type="text/javascript">
+        function Calendar2(id, year, month) {
+            var Dlast = new Date(year, month + 1, 0).getDate(),
+                D = new Date(year, month, Dlast),
+                DNlast = new Date(D.getFullYear(), D.getMonth(), Dlast).getDay(),
+                DNfirst = new Date(D.getFullYear(), D.getMonth(), 1).getDay(),
+                calendar = '<tr>',
+                month = ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"];
+            if (DNfirst != 0) {
+                for (var i = 1; i < DNfirst; i++) calendar += '<td>';
+            } else {
+                for (var i = 0; i < 6; i++) calendar += '<td>';
+            }
+            for (var i = 1; i <= Dlast; i++) {
+                if (i == new Date().getDate() && D.getFullYear() == new Date().getFullYear() && D.getMonth() == new Date().getMonth()) {
+                    calendar += '<td class="today">' + i;
+                } else {
+                    calendar += '<td>' + i;
+                }
+                if (new Date(D.getFullYear(), D.getMonth(), i).getDay() == 0) {
+                    calendar += '<tr>';
+                }
+            }
+            for (var i = DNlast; i < 7; i++) calendar += '<td>&nbsp;';
+            document.querySelector('#' + id + ' tbody').innerHTML = calendar;
+            document.querySelector('#' + id + ' thead td:nth-child(2)').innerHTML = month[D.getMonth()] + ' ' + D.getFullYear();
+            document.querySelector('#' + id + ' thead td:nth-child(2)').dataset.month = D.getMonth();
+            document.querySelector('#' + id + ' thead td:nth-child(2)').dataset.year = D.getFullYear();
+            if (document.querySelectorAll('#' + id + ' tbody tr').length < 6) { // чтобы при перелистывании месяцев не "подпрыгивала" вся страница, добавляется ряд пустых клеток. Итог: всегда 6 строк для цифр
+                document.querySelector('#' + id + ' tbody').innerHTML += '<tr><td>&nbsp;<td>&nbsp;<td>&nbsp;<td>&nbsp;<td>&nbsp;<td>&nbsp;<td>&nbsp;';
+            }
+        }
+        Calendar2("calendar2", new Date().getFullYear(), new Date().getMonth());
+        // переключатель минус месяц
+        document.querySelector('#calendar2 thead tr:nth-child(1) td:nth-child(1)').onclick = function() {
+                Calendar2("calendar2", document.querySelector('#calendar2 thead td:nth-child(2)').dataset.year, parseFloat(document.querySelector('#calendar2 thead td:nth-child(2)').dataset.month) - 1);
+            }
+            // переключатель плюс месяц
+        document.querySelector('#calendar2 thead tr:nth-child(1) td:nth-child(3)').onclick = function() {
+            Calendar2("calendar2", document.querySelector('#calendar2 thead td:nth-child(2)').dataset.year, parseFloat(document.querySelector('#calendar2 thead td:nth-child(2)').dataset.month) + 1);
+        }
+    </script>
+</body>
+
+</html>

@@ -15,86 +15,191 @@ $con->news();
 $news=$con->data;
 
 ?>
-<style>
-	.widget{
-		font-size:0.8em;
-	}	
-	.widget >p >img{
-		font-size:0.5em;
-	}
-</style>	
-<div id="infor">
-	<div class="table index_page">
-		<div class="row h100">
+	<style type="text/css">
+		* {
+  			margin: 0;
+  			padding: 0;
+  			box-sizing: border-box;
+		}
+		.grid_container {
+			/*background-color: gray;*/
+			height: 86vh;
+			width: 80%;
+			margin: 10px auto;
+			text-align: center;
 
-			<!--div class="td w33 p3 h100 vtop curs acenter" onmousedown="searchNews(null,300);"-->
-			<div class="td w33 p3 h100 vtop acenter">
-				<div class="dib w100">
-					<div class="header" id="events_container">
-						<center>Сегодня в РГБИ</center> 
-						<hr>
-					</div>
-				</div>	
-			</div>
-			<div class="td w33 p3 h100 vtop acenter"> <!--  style="background-color:blue;" -->
-				<div class="dib w100">
-					<div class="header" id="news_container">
-						<center>Новости</center> 
-						<hr>
-					<img src="http://192.168.1.18/media/uploads/newsavatars/2021/11/1dccb85c23264bdcaafa6d00dea62bd2.jpg" alt="аватар img">
-					</div>
-					<!-- http://192.168.1.18/media/uploads/newsavatars/2021/11/1dccb85c23264bdcaafa6d00dea62bd2.jpg -->
-					<!-- http://192.168.1.18/media/files/img/2021/09112021/1.jpg -->
-				</div>	
-			</div>
-			<div class="td w33 p3 h100 vtop acenter">
-			
-				<div class="dib w100">
-					<div onmousedown="searchNews(null,300);" class="header"><center>Из новых поступлений</center></div>
-					<!--div class="spacer h100x"></div-->
-					<div id="newbooks"><!-- не трогать -->
-	
-						<div id="sldr"></div>
-											
-					</div><!-- не трогать -->
-					<a class="button15" id="more_books">Показать еще...</a>
-					<div class="spacer h50x"></div>
-					<div onmousedown="searchNews(null,300);" class="else1"><span>Список новых поступлений...</span></div>
-				</div>
-				
-				<div id="lstbks"></div>
-						
-				<!--div id="btn_add" style="clear:both"><a class="button15" id="add_books">Добавить еще...</a></div-->
-				<div id="btn_add" style="clear:both">
-					<a class="button15" id="add_books"></a>
-				</div>
-			</div>
-			
-			
-			<!--div class="td h100 p3 vtop">
-				<div class="header w100">Популярное</div>
-				<div class="table w100">
-					<div class="row h100">
-						<div class="td w50 vtop curs acenter" onmousedown="goToLocation('bookrating');">
-							<div class="dib">
-								<div class="header1">Книги</div>
-								<div id="bookrating"></div>
-								<div class="else1"><span>Еще...</span></div>
-							</div>
-						</div>
-						<div class="td vtop curs acenter" onmousedown="goToLocation('ebookrating');">
-							<div class="dib">
-								<div class="header1">Электронные книги</div>
-								<div id="ebookrating"></div>
-								<div class="else1"><span>Еще...</span></div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div-->
+			display: grid;
+			grid-gap: 0.5vw;
+			grid-template-areas:
+        "gap  	  playbill 	gap3"
+        "gap  	  playbill 	books"
+        "events   playbill 	books"
+        "events   news 		books"
+        "events   news 		books"
+        "calendar news 		books"
+        "calendar news 		gap1"
+        "calendar gap2 		gap1";
+        	grid-template-columns: 5fr 8fr 6fr;
+  			grid-template-rows: repeat(8, 90px);
+		}
+		#gap {
+			grid-area: gap;
+			background-color: yellow;
+			opacity: 0.5;
+		}
+		#gap1 {
+			grid-area: gap1;
+			background-color: yellow;
+			opacity: 0.5;
+		}
+		#gap2 {
+			grid-area: gap2;
+			background-color: yellow;
+			opacity: 0.5;
+		}
+		#gap3 {
+			grid-area: gap3;
+			background-color: yellow;
+			opacity: 0.5;
+		}	
+		#playbill {
+  			grid-area: playbill;
+  			background-color: lightgreen;
+			  opacity: 0.5;  
+		}
+		#books {
+  			grid-area: books;
+  			background-color: violet;
+			  opacity: 0.5;
+		}
+		#events {
+			grid-area: events;
+			background-color: pink;
+			opacity: 0.5;
+		}
+		#news {
+			grid-area: news;
+			background-color: green;
+			opacity: 0.5;
+		}
+		#almanac {
+			grid-area: calendar;
+			border: 4px double black; 
+    		padding: 10px; 
+		}
+	</style>
+<style>
+        #calendar2 {
+            width: 100%;
+            font: monospace;
+            line-height: 1.2em;
+            font-size: 15px;
+            text-align: center;
+        }
+        
+        #calendar2 thead tr:last-child {
+            font-size: small;
+            color: rgb(85, 85, 85);
+        }
+        
+        #calendar2 thead tr:nth-child(1) td:nth-child(2) {
+            color: rgb(50, 50, 50);
+        }
+        
+        #calendar2 thead tr:nth-child(1) td:nth-child(1):hover,
+        #calendar2 thead tr:nth-child(1) td:nth-child(3):hover {
+            cursor: pointer;
+        }
+        
+        #calendar2 tbody td {
+            color: rgb(44, 86, 122);
+        }
+        
+        #calendar2 tbody td:nth-child(n+6),
+        #calendar2 .holiday {
+            color: rgb(231, 140, 92);
+        }
+        
+        #calendar2 tbody td.today {
+            background: rgb(220, 0, 0);
+            color: #fff;
+        }
+    </style>
+
+<div id="infor">
+	<div class="grid_container">
+		<div id='gap'>gap</div>
+		<div id='gap1'>gap1</div>
+		<div id='gap2'>gap2</div>
+		<div id='gap3'>gap3</div>
+		<div id='playbill'>playbill</div>
+		<div id='books'>books</div>
+		<div id='events'>events</div>
+		<div id='news'>news</div>
+		<div id='almanac'><span style="text-decoration:underline;">Календарь событий на месяц</span>
+		<table id="calendar2">
+                <thead>
+                    <tr>
+                        <td>‹
+                            <td colspan="5">
+                                <td>›
+                                    <tr>
+                                        <td>Пн
+                                            <td>Вт
+                                                <td>Ср
+                                                    <td>Чт
+                                                        <td>Пт
+                                                            <td>Сб
+                                                                <td>Вс
+                                                                    <tbody>
+            </table>
+
 		</div>
 	</div>
 </div>
+
+<script type="text/javascript">
+        function Calendar2(id, year, month) {
+            var Dlast = new Date(year, month + 1, 0).getDate(),
+                D = new Date(year, month, Dlast),
+                DNlast = new Date(D.getFullYear(), D.getMonth(), Dlast).getDay(),
+                DNfirst = new Date(D.getFullYear(), D.getMonth(), 1).getDay(),
+                calendar = '<tr>',
+                month = ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"];
+            if (DNfirst != 0) {
+                for (var i = 1; i < DNfirst; i++) calendar += '<td>';
+            } else {
+                for (var i = 0; i < 6; i++) calendar += '<td>';
+            }
+            for (var i = 1; i <= Dlast; i++) {
+                if (i == new Date().getDate() && D.getFullYear() == new Date().getFullYear() && D.getMonth() == new Date().getMonth()) {
+                    calendar += '<td class="today">' + i;
+                } else {
+                    calendar += '<td>' + i;
+                }
+                if (new Date(D.getFullYear(), D.getMonth(), i).getDay() == 0) {
+                    calendar += '<tr>';
+                }
+            }
+            for (var i = DNlast; i < 7; i++) calendar += '<td>&nbsp;';
+            document.querySelector('#' + id + ' tbody').innerHTML = calendar;
+            document.querySelector('#' + id + ' thead td:nth-child(2)').innerHTML = month[D.getMonth()] + ' ' + D.getFullYear();
+            document.querySelector('#' + id + ' thead td:nth-child(2)').dataset.month = D.getMonth();
+            document.querySelector('#' + id + ' thead td:nth-child(2)').dataset.year = D.getFullYear();
+            if (document.querySelectorAll('#' + id + ' tbody tr').length < 6) { // чтобы при перелистывании месяцев не "подпрыгивала" вся страница, добавляется ряд пустых клеток. Итог: всегда 6 строк для цифр
+                document.querySelector('#' + id + ' tbody').innerHTML += '<tr><td>&nbsp;<td>&nbsp;<td>&nbsp;<td>&nbsp;<td>&nbsp;<td>&nbsp;<td>&nbsp;';
+            }
+        }
+        Calendar2("calendar2", new Date().getFullYear(), new Date().getMonth());
+        // переключатель минус месяц
+        document.querySelector('#calendar2 thead tr:nth-child(1) td:nth-child(1)').onclick = function() {
+                Calendar2("calendar2", document.querySelector('#calendar2 thead td:nth-child(2)').dataset.year, parseFloat(document.querySelector('#calendar2 thead td:nth-child(2)').dataset.month) - 1);
+            }
+            // переключатель плюс месяц
+        document.querySelector('#calendar2 thead tr:nth-child(1) td:nth-child(3)').onclick = function() {
+            Calendar2("calendar2", document.querySelector('#calendar2 thead td:nth-child(2)').dataset.year, parseFloat(document.querySelector('#calendar2 thead td:nth-child(2)').dataset.month) + 1);
+        }
+    </script>
 
 <script type="text/javascript"> 
 /*

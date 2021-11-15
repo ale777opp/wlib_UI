@@ -1,0 +1,81 @@
+		
+<style>
+	.widget{
+		font-size:0.8em;
+	}	
+	.widget >p >img{
+		font-size:0.5em;
+	}
+</style>	
+<div id="infor">
+	<div class="table index_page">
+		<div class="row h100">
+
+			<!--div class="td w33 p3 h100 vtop curs acenter" onmousedown="searchNews(null,300);"-->
+			<div class="td w33 p3 h100 vtop acenter">
+				<div class="dib w100">
+					<div class="header" id="events_container">
+						<center>Сегодня в РГБИ</center> 
+						<hr>
+					</div>
+				</div>	
+			</div>
+			<div class="td w33 p3 h100 vtop acenter"> <!--  style="background-color:blue;" -->
+				<div class="dib w100">
+					<div class="header" id="news_container">
+						<center>Новости</center> 
+						<hr>
+					<img src="http://192.168.1.18/media/uploads/newsavatars/2021/11/1dccb85c23264bdcaafa6d00dea62bd2.jpg" alt="аватар img">
+					</div>
+					<!-- http://192.168.1.18/media/uploads/newsavatars/2021/11/1dccb85c23264bdcaafa6d00dea62bd2.jpg -->
+					<!-- http://192.168.1.18/media/files/img/2021/09112021/1.jpg -->
+				</div>	
+			</div>
+			<div class="td w33 p3 h100 vtop acenter">
+			
+				<div class="dib w100">
+					<div onmousedown="searchNews(null,300);" class="header"><center>Из новых поступлений</center></div>
+					<!--div class="spacer h100x"></div-->
+					<div id="newbooks"><!-- не трогать -->
+	
+						<div id="sldr"></div>
+											
+					</div><!-- не трогать -->
+					<a class="button15" id="more_books">Показать еще...</a>
+					<div class="spacer h50x"></div>
+					<div onmousedown="searchNews(null,300);" class="else1"><span>Список новых поступлений...</span></div>
+				</div>
+				
+				<div id="lstbks"></div>
+						
+				<!--div id="btn_add" style="clear:both"><a class="button15" id="add_books">Добавить еще...</a></div-->
+				<div id="btn_add" style="clear:both">
+					<a class="button15" id="add_books"></a>
+				</div>
+			</div>
+			
+			
+			<!--div class="td h100 p3 vtop">
+				<div class="header w100">Популярное</div>
+				<div class="table w100">
+					<div class="row h100">
+						<div class="td w50 vtop curs acenter" onmousedown="goToLocation('bookrating');">
+							<div class="dib">
+								<div class="header1">Книги</div>
+								<div id="bookrating"></div>
+								<div class="else1"><span>Еще...</span></div>
+							</div>
+						</div>
+						<div class="td vtop curs acenter" onmousedown="goToLocation('ebookrating');">
+							<div class="dib">
+								<div class="header1">Электронные книги</div>
+								<div id="ebookrating"></div>
+								<div class="else1"><span>Еще...</span></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div-->
+		</div>
+	</div>
+</div>
