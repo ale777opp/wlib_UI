@@ -32,7 +32,7 @@ $news=$con->data;
 			grid-gap: 0.5vw;
 			grid-template-areas:
         "gap  	  playbill 	gap3"
-        "gap  	  playbill 	books"
+        "events	  playbill 	books"
         "events   playbill 	books"
         "events   news 		books"
         "events   news 		books"
@@ -72,15 +72,11 @@ $news=$con->data;
   			background-color: violet;
 			  opacity: 0.5;
 		}
-		#events {
+		#events_container {
 			grid-area: events;
-			background-color: pink;
-			opacity: 0.5;
 		}
-		#news {
+		#news_container {
 			grid-area: news;
-			background-color: green;
-			opacity: 0.5;
 		}
 		#almanac {
 			grid-area: calendar;
@@ -134,15 +130,24 @@ $news=$con->data;
 		<div id='gap3'>gap3</div>
 		<div id='playbill'>playbill</div>
 		<div id='books'>books</div>
-		<div id='events'>events</div>
-		<div id='news'>news</div>
+		<div class="header" id="events_container">
+			<center>Сегодня в РГБИ</center> 
+			<hr>
+		</div>
+		<div class="header" id="news_container">
+			<center>Новости</center> 
+			<hr>
+			<img src="http://192.168.1.18/media/uploads/newsavatars/2021/11/1dccb85c23264bdcaafa6d00dea62bd2.jpg" alt="аватар img">
+			<!-- http://192.168.1.18/media/uploads/newsavatars/2021/11/1dccb85c23264bdcaafa6d00dea62bd2.jpg -->
+			<!-- http://192.168.1.18/media/files/img/2021/09112021/1.jpg -->	
+		</div>
 		<div id='almanac'><span style="text-decoration:underline;">Календарь событий на месяц</span>
 		<table id="calendar2">
-                <thead>
-                    <tr>
-                        <td>‹
-                            <td colspan="5">
-                                <td>›
+            <thead>
+                <tr>
+                <td>
+                    <td colspan="5">
+                       <td>
                                     <tr>
                                         <td>Пн
                                             <td>Вт
@@ -151,14 +156,13 @@ $news=$con->data;
                                                         <td>Пт
                                                             <td>Сб
                                                                 <td>Вс
-                                                                    <tbody>
-            </table>
-
+            <tbody>
+        </table>
 		</div>
 	</div>
 </div>
 
-<script type="text/javascript">
+<script type="text/javascript"> // скрипт календаря
         function Calendar2(id, year, month) {
             var Dlast = new Date(year, month + 1, 0).getDate(),
                 D = new Date(year, month, Dlast),
@@ -201,7 +205,7 @@ $news=$con->data;
         }
     </script>
 
-<script type="text/javascript"> 
+<script type="text/javascript"> //скрипт новостей событий и книг
 /*
  const createEl = (id, text, tag, _class) => {
   const el = document.createElement(tag)
@@ -235,14 +239,10 @@ htmlEventsObject.className = "widget";
 htmlNewsObject.id = "news_content";
 //htmlBooksObject.id = "books";
 htmlEventsObject.id = "events_content";
-/*
-htmlNewsObject.style = "width:32%;background-color:lightgreen;";
-//htmlBooksObject.style = "width:32%;background-color:yellow;";
-htmlEventsObject.style = "width:32%;background-color:green;";
-*/
+
 news_container.appendChild(htmlNewsObject);
 //content.appendChild(htmlBooksObject);
-events_container.appendChild(htmlEventsObject);
+events_container.append(htmlEventsObject);
 
 let news_content = document.getElementById('news_content');
 let events_content = document.getElementById('events_content');
@@ -285,8 +285,6 @@ events_content.append(htmlContinueObject2);
 	//счетчики для слайдера
 	slider.start = 0;
 	slider.end = 2;
-	
-	
 
 	var prnt = document.getElementById('sldr');
 
