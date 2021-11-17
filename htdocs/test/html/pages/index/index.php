@@ -44,33 +44,23 @@ $news=$con->data;
 		}
 		#gap {
 			grid-area: gap;
-			background-color: yellow;
-			opacity: 0.5;
 		}
 		#gap1 {
 			grid-area: gap1;
-			background-color: yellow;
-			opacity: 0.5;
 		}
 		#gap2 {
 			grid-area: gap2;
-			background-color: yellow;
-			opacity: 0.5;
 		}
 		#gap3 {
 			grid-area: gap3;
-			background-color: yellow;
-			opacity: 0.5;
 		}	
 		#playbill {
   			grid-area: playbill;
   			background-color: lightgreen;
 			  opacity: 0.5;  
 		}
-		#books {
+		#books_container {
   			grid-area: books;
-  			background-color: violet;
-			  opacity: 0.5;
 		}
 		#events_container {
 			grid-area: events;
@@ -83,7 +73,10 @@ $news=$con->data;
 			border: 4px double black; 
     		padding: 10px; 
 		}
-	</style>
+		[id$='_content'] {
+			font-size: medium;
+		}
+</style>
 <style>
         #calendar2 {
             width: 100%;
@@ -124,12 +117,27 @@ $news=$con->data;
 
 <div id="infor">
 	<div class="grid_container">
-		<div id='gap'>gap</div>
-		<div id='gap1'>gap1</div>
-		<div id='gap2'>gap2</div>
-		<div id='gap3'>gap3</div>
+		<div id='gap'></div>
+		<div id='gap1'></div>
+		<div id='gap2'></div>
+		<div id='gap3'></div>
 		<div id='playbill'>playbill</div>
-		<div id='books'>books</div>
+		<div class="header" id="books_container">
+			<center>Из новых поступлений</center> 
+			<hr>
+		<!-- старая версия слайдера \/ -->
+			<div class="dib w100">
+					<div onmousedown="searchNews(null,300);" class="header"><center>Новые поступления</center></div>
+					<!--div class="spacer h100x"></div-->
+					<div id="newbooks"><!-- не трогать -->
+						<div id="sldr"></div>
+					</div><!-- не трогать -->
+					<a class="button15" id="more_books">Показать еще...</a>
+					<div class="spacer h50x"></div>
+					<div onmousedown="searchNews(null,300);" class="else1"><span>Список новых поступлений...</span></div>
+			</div>
+		<!-- старая версия слайдера /\ -->		
+		</div>
 		<div class="header" id="events_container">
 			<center>Сегодня в РГБИ</center> 
 			<hr>
@@ -206,65 +214,74 @@ $news=$con->data;
     </script>
 
 <script type="text/javascript"> //скрипт новостей событий и книг
+
+let j =1;
+
+// books \/
+let books = <?php echo json_encode($books); ?>;
 /*
- const createEl = (id, text, tag, _class) => {
+let books_container = document.getElementById('books_container');
+let htmlBooksObject = document.createElement('div');
+htmlBooksObject.innerHTML = books[j]['content'];
+htmlBooksObject.className = "widget";
+htmlBooksObject.id = "books_content";
+books_container.appendChild(htmlBooksObject);
+*/
+//events \/
+let events = <?php echo json_encode($events); ?>;
+let events_container = document.getElementById('events_container');
+let htmlEventsObject = document.createElement('div');
+htmlEventsObject.innerHTML = events[j]['title'];
+htmlEventsObject.className = "widget";
+htmlEventsObject.id = "events_content";
+events_container.appendChild(htmlEventsObject);
+
+//news \/
+let news = <?php echo json_encode($news); ?>;
+let news_container = document.getElementById('news_container');
+let htmlNewsObject = document.createElement('div');
+htmlNewsObject.innerHTML = news[j]['content'];
+htmlNewsObject.className = "widget";
+htmlNewsObject.id = "news_content";
+news_container.appendChild(htmlNewsObject);
+
+
+let news_content = document.getElementById('news_content');
+let events_content = document.getElementById('events_content');
+//let books_content = document.getElementById('books_content');
+
+let htmlSpan = `<span style = "cursor:pointer;" onclick="alert('CLICK!');">Еще...</span>`;
+
+let htmlContinueObject1 = document.createElement('div');
+htmlContinueObject1.className = "else1";
+htmlContinueObject1.innerHTML = htmlSpan;
+
+let htmlContinueObject2 = document.createElement('div');
+htmlContinueObject2.className = "else1";
+htmlContinueObject2.innerHTML = htmlSpan+`<br><p>Начало: ${events[j]['start_date']}</p><br><p>Конец: ${events[j]['end_date']}</p>`;
+/*
+let htmlContinueObject3 = document.createElement('img');
+htmlContinueObject3.className = "image";
+htmlContinueObject3.src = "http://liart.ru/media/uploads/newinlib/itemavatars/big/" + books[j]['avatar_img_name'];
+htmlContinueObject3.style = "padding:10px;";
+htmlContinueObject3.alt = "avatar book";
+*/
+news_content.append(htmlContinueObject1);
+events_content.append(htmlContinueObject2);
+//books_content.append(htmlContinueObject3);
+
+//-------------------------------------
+var data = books;
+var slider = {};
+
+const log = console.log;
+const createEl = (id, text, tag, _class) => {
   const el = document.createElement(tag)
   el.id = id
   el.className = _class
   el.textContent = text
   return el
 }
-*/
-//let books = <?php echo json_encode($books); ?>;
-let events = <?php echo json_encode($events); ?>;
-let news = <?php echo json_encode($news); ?>;
-
-let news_container = document.getElementById('news_container');
-let events_container = document.getElementById('events_container');
-
-let htmlNewsObject = document.createElement('div');
-//let htmlBooksObject = document.createElement('div');
-let htmlEventsObject = document.createElement('div');
-
-let j =3;
-
-htmlNewsObject.innerHTML = news[j]['content'];
-//htmlBooksObject.innerHTML = books[j]['content'];
-htmlEventsObject.innerHTML = events[j]['content'];
-
-htmlNewsObject.className = "widget";
-//htmlBooksObject.className = "widget";
-htmlEventsObject.className = "widget";
-
-htmlNewsObject.id = "news_content";
-//htmlBooksObject.id = "books";
-htmlEventsObject.id = "events_content";
-
-news_container.appendChild(htmlNewsObject);
-//content.appendChild(htmlBooksObject);
-events_container.append(htmlEventsObject);
-
-let news_content = document.getElementById('news_content');
-let events_content = document.getElementById('events_content');
-
-//createEl = (id, text = "<span>Еще...</span>", tag = 'div', _class = 'else1'); 
-
-let htmlContinueObject1 = document.createElement('div');
-htmlContinueObject1.className = "else1";
-htmlContinueObject1.innerHTML = "<span>Еще...</span>";
-
-let htmlContinueObject2 = document.createElement('div');
-htmlContinueObject2.className = "else1";
-htmlContinueObject2.innerHTML = "<span>Еще...</span>";
-
-news_content.append(htmlContinueObject1);
-events_content.append(htmlContinueObject2);
-
-//-------------------------------------
-
-	var data = <?php echo json_encode($books); ?>;
-
-	var slider = {};
 
 	slider.get_link = function(text){
 		
@@ -284,14 +301,14 @@ events_content.append(htmlContinueObject2);
 	
 	//счетчики для слайдера
 	slider.start = 0;
-	slider.end = 2;
+	slider.end = 3;
 
 	var prnt = document.getElementById('sldr');
 
 	slider.cycle = function(){
-		
+		console.log('!!slider.cycle!!')
 		for(var i=slider.start;i<slider.end;i++){
-
+			console 
 		var sldr_item = document.createElement('div');
 		sldr_item.className = "sldr-item";
 		sldr_item.style = "width:300px;";
