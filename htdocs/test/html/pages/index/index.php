@@ -156,14 +156,14 @@ $news=$con->data;
                 <td>
                     <td colspan="5">
                        <td>
-                                    <tr>
-                                        <td>Пн
-                                            <td>Вт
-                                                <td>Ср
-                                                    <td>Чт
-                                                        <td>Пт
-                                                            <td>Сб
-                                                                <td>Вс
+                            <tr>
+                            <td>Пн
+                            <td>Вт
+                            <td>Ср
+                            <td>Чт
+                            <td>Пт
+                            <td>Сб
+                            <td>Вс
             <tbody>
         </table>
 		</div>

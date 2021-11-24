@@ -1,4 +1,10 @@
 C:\opac-global\web\test\htdocs\test\html\pages\index\db_auth.php
-*/default_*.*
+htdocs/test/css/*.css
+htdocs/conf/custom/css/default_*.css
+htdocs/test/css/default/*.*
+htdocs/test/js/default_*js
+
 *.zip
-*/htdocs/test/css/fonts/*.*
+htdocs/test/html/pages/includes/searchdiv.php
+htdocs/test/css/fonts/*.*
+
