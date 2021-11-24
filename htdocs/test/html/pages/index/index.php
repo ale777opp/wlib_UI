@@ -4,7 +4,6 @@ include (THEPAGESPATH.'/includes/searchdiv.php');
 require_once "get_page_info.php";
 
 $con = new Db();
-//var_dump($con);
 $con->books();
 $books=$con->data;
 
@@ -15,15 +14,10 @@ $con->news();
 $news=$con->data;
 
 ?>
-	<style type="text/css">
-		* {
-  			margin: 0;
-  			padding: 0;
-  			box-sizing: border-box;
-		}
-		.grid_container {
+<style type="text/css">
+	.grid_container {
 			/*background-color: gray;*/
-			height: 86vh;
+			height: 100%;
 			width: 80%;
 			margin: 10px auto;
 			text-align: center;
@@ -31,7 +25,7 @@ $news=$con->data;
 			display: grid;
 			grid-gap: 0.5vw;
 			grid-template-areas:
-        "gap  	  playbill 	gap3"
+        "events	  playbill 	gap3"
         "events	  playbill 	books"
         "events   playbill 	books"
         "events   news 		books"
@@ -40,7 +34,7 @@ $news=$con->data;
         "calendar news 		gap1"
         "calendar gap2 		gap1";
         	grid-template-columns: 5fr 8fr 6fr;
-  			grid-template-rows: repeat(8, 90px);
+  			grid-template-rows: repeat(8, 110px);
 		}
 		#gap {
 			grid-area: gap;
@@ -57,16 +51,19 @@ $news=$con->data;
 		#playbill {
   			grid-area: playbill;
   			background-color: lightgreen;
-			  opacity: 0.5;  
+			opacity: 0.5;  
 		}
 		#books_container {
   			grid-area: books;
+			font-size: medium;  
 		}
 		#events_container {
 			grid-area: events;
+			font-size: medium;
 		}
 		#news_container {
 			grid-area: news;
+			font-size: medium;
 		}
 		#almanac {
 			grid-area: calendar;
@@ -121,33 +118,36 @@ $news=$con->data;
 		<div id='gap1'></div>
 		<div id='gap2'></div>
 		<div id='gap3'></div>
-		<div id='playbill'>playbill</div>
-		<div class="header" id="books_container">
-			<center>Из новых поступлений</center> 
-			<hr>
+		<div id='playbill'>playbill
+		<!--	
+		<img src="http://liart.ru/media/files/img/2020/13042020/v_online.gif" alt="" title="" style="display: none;">
+		<a href="http://liart.ru/ru/pages/RGBI_events_online/" class="nivo-imageLink" style="display: block;">
+		<img src="http://liart.ru/media/files/img/2020/13042020/v_online.gif" alt="" title="" style="display: none;"></a>
+		-->
+		</div>
+		<div id="books_container" class="header">
 		<!-- старая версия слайдера \/ -->
 			<div class="dib w100">
-					<div onmousedown="searchNews(null,300);" class="header"><center>Новые поступления</center></div>
-					<!--div class="spacer h100x"></div-->
+					<div onmousedown="searchNews(null,300);" class="header"><center>Из новых поступлений</center> </div>
 					<div id="newbooks"><!-- не трогать -->
 						<div id="sldr"></div>
 					</div><!-- не трогать -->
 					<a class="button15" id="more_books">Показать еще...</a>
-					<div class="spacer h50x"></div>
+					<div class="spacer h10x"></div>
 					<div onmousedown="searchNews(null,300);" class="else1"><span>Список новых поступлений...</span></div>
 			</div>
 		<!-- старая версия слайдера /\ -->		
 		</div>
-		<div class="header" id="events_container">
-			<center>Сегодня в РГБИ</center> 
-			<hr>
+		<div  id="events_container">
+			<div class="header"><center>Сегодня в РГБИ</center></div>
+			<div class = "spacer h15x"></div>
 		</div>
-		<div class="header" id="news_container">
-			<center>Новости</center> 
-			<hr>
-			<img src="http://192.168.1.18/media/uploads/newsavatars/2021/11/1dccb85c23264bdcaafa6d00dea62bd2.jpg" alt="аватар img">
+		<div id="news_container">
+			<div class="header"><center>Новости</center> </div>
+			<div class = "spacer h15x"></div>
+			<!-- <img src="http://192.168.1.18/media/uploads/newsavatars/2021/11/1dccb85c23264bdcaafa6d00dea62bd2.jpg" alt="аватар img"> -->
 			<!-- http://192.168.1.18/media/uploads/newsavatars/2021/11/1dccb85c23264bdcaafa6d00dea62bd2.jpg -->
-			<!-- http://192.168.1.18/media/files/img/2021/09112021/1.jpg -->	
+			<!-- http://192.168.1.18/media/files/img/2021/09112021/1.jpg     (?<=src=\\")(.+?)(?=\\"\salt)          -->	
 		</div>
 		<div id='almanac'><span style="text-decoration:underline;">Календарь событий на месяц</span>
 		<table id="calendar2">
@@ -214,8 +214,17 @@ $news=$con->data;
     </script>
 
 <script type="text/javascript"> //скрипт новостей событий и книг
+const log = console.log;
+const createEl = (id, text, tag, _class) => {
+  const el = document.createElement(tag)
+  el.id = id
+  el.className = _class
+  el.textContent = text
+  return el
+}
 
 let j =1;
+let htmlSpan = `<span class = "curs" onclick="alert('CLICK!');">Еще...</span>`;
 
 // books \/
 let books = <?php echo json_encode($books); ?>;
@@ -226,69 +235,73 @@ htmlBooksObject.innerHTML = books[j]['content'];
 htmlBooksObject.className = "widget";
 htmlBooksObject.id = "books_content";
 books_container.appendChild(htmlBooksObject);
-*/
-//events \/
-let events = <?php echo json_encode($events); ?>;
-let events_container = document.getElementById('events_container');
-let htmlEventsObject = document.createElement('div');
-htmlEventsObject.innerHTML = events[j]['title'];
-htmlEventsObject.className = "widget";
-htmlEventsObject.id = "events_content";
-events_container.appendChild(htmlEventsObject);
+let books_content = document.getElementById('books_content');
 
-//news \/
-let news = <?php echo json_encode($news); ?>;
-let news_container = document.getElementById('news_container');
-let htmlNewsObject = document.createElement('div');
-htmlNewsObject.innerHTML = news[j]['content'];
-htmlNewsObject.className = "widget";
-htmlNewsObject.id = "news_content";
-news_container.appendChild(htmlNewsObject);
-
-
-let news_content = document.getElementById('news_content');
-let events_content = document.getElementById('events_content');
-//let books_content = document.getElementById('books_content');
-
-let htmlSpan = `<span style = "cursor:pointer;" onclick="alert('CLICK!');">Еще...</span>`;
-
-let htmlContinueObject1 = document.createElement('div');
-htmlContinueObject1.className = "else1";
-htmlContinueObject1.innerHTML = htmlSpan;
-
-let htmlContinueObject2 = document.createElement('div');
-htmlContinueObject2.className = "else1";
-htmlContinueObject2.innerHTML = htmlSpan+`<br><p>Начало: ${events[j]['start_date']}</p><br><p>Конец: ${events[j]['end_date']}</p>`;
-/*
 let htmlContinueObject3 = document.createElement('img');
 htmlContinueObject3.className = "image";
 htmlContinueObject3.src = "http://liart.ru/media/uploads/newinlib/itemavatars/big/" + books[j]['avatar_img_name'];
 htmlContinueObject3.style = "padding:10px;";
 htmlContinueObject3.alt = "avatar book";
-*/
-news_content.append(htmlContinueObject1);
-events_content.append(htmlContinueObject2);
-//books_content.append(htmlContinueObject3);
 
+books_content.append(htmlContinueObject3);
+*/
+//events \/
+let events = <?php echo json_encode($events); ?>;
+let eventsTape ={};
+let events_container = document.getElementById('events_container');
+eventsTape.start = 2;
+eventsTape.end = 2;
+
+for(var i=eventsTape.start;i<eventsTape.end;i++){
+let htmlEventsObject = document.createElement('div');
+htmlEventsObject.className = "widget";
+eventsTime = `<p>Начало: ${events[i]['start_date']}</p><p>Конец: ${events[i]['end_date']}</p>`;
+eventsTitle = `<center>${events[i]['title']}</center><br>`;
+eventsContent = `<div>${events[i]['content']}</div>`;
+htmlEventsObject.innerHTML = eventsTitle + eventsContent + eventsTime + htmlSpan + `<hr>`;
+//htmlEventsObject.id = "events_content";
+events_container.appendChild(htmlEventsObject);
+
+//let events_content = document.getElementById('events_content');
+//let htmlContinueObjectEvents = document.createElement('div');
+//htmlContinueObjectEvents.className = "else1";
+//htmlContinueObjectEvents.innerHTML = htmlSpan+`<br><p>Начало: ${events[j]['start_date']}</p><br><p>Конец: ${events[j]['end_date']}</p>`;
+//events_content.append(htmlContinueObjectEvents);
+}
+
+//news \/
+let news = <?php echo json_encode($news); ?>;
+let news_container = document.getElementById('news_container');
+let htmlNewsObject = document.createElement('div');
+htmlNewsObject.innerHTML = `<p><cenetr>${news[j]['title']}</center></p>${news[j]['content']}`;
+htmlNewsObject.className = "widget";
+htmlNewsObject.id = "news_content";
+news_container.appendChild(htmlNewsObject);
+
+let news_content = document.getElementById('news_content');
+
+let htmlContinueObjectNews = document.createElement('div');
+htmlContinueObjectNews.className = "else1";
+htmlContinueObjectNews.innerHTML = htmlSpan;
+news_content.append(htmlContinueObjectNews);
+
+		let img_news = document.createElement('img');
+		img_news.src = "http://192.168.1.18/media/uploads/newsavatars/" + news[j]['avatar_img_name'];
+		img_news.style = "padding:10px;";
+news_content.append(img_news);
+
+		/*
+		<img src="http://192.168.1.18/media/uploads/newsavatars/2021/11/1dccb85c23264bdcaafa6d00dea62bd2.jpg" alt="аватар img"> -->
+			<!-- http://192.168.1.18/media/uploads/newsavatars/2021/11/1dccb85c23264bdcaafa6d00dea62bd2.jpg -->
+			<!-- http://192.168.1.18/media/files/img/2021/09112021/1.jpg     (?<=src=\\")(.+?)(?=\\"\salt)    
+		*/		
 //-------------------------------------
 var data = books;
 var slider = {};
 
-const log = console.log;
-const createEl = (id, text, tag, _class) => {
-  const el = document.createElement(tag)
-  el.id = id
-  el.className = _class
-  el.textContent = text
-  return el
-}
-
 	slider.get_link = function(text){
-		
 		var htmlObject = document.createElement('div');
-		
 		htmlObject.innerHTML = text;
-		
 		//проверка есть ли ссылка в публикации о новинке
 		if (htmlObject.innerHTML.indexOf("</a>") != -1) {
 			var link = htmlObject.getElementsByTagName('a');
@@ -296,7 +309,6 @@ const createEl = (id, text, tag, _class) => {
 		}else{
 			return '#';
 		}
-		
 	}
 	
 	//счетчики для слайдера
@@ -306,7 +318,6 @@ const createEl = (id, text, tag, _class) => {
 	var prnt = document.getElementById('sldr');
 
 	slider.cycle = function(){
-		console.log('!!slider.cycle!!')
 		for(var i=slider.start;i<slider.end;i++){
 			console 
 		var sldr_item = document.createElement('div');
@@ -316,8 +327,7 @@ const createEl = (id, text, tag, _class) => {
 		var img = document.createElement('img');
 		img.src = "http://liart.ru/media/uploads/newinlib/itemavatars/big/" + data[i]['avatar_img_name'];
 		img.style = "padding:10px;";
-		
-		
+	
 		var link = document.createElement('a');
 		
 		link.href = slider.get_link(data[i]['content']);
@@ -346,7 +356,7 @@ const createEl = (id, text, tag, _class) => {
 		prnt.appendChild(sldr_item); //элемент слайдера
 		sldr_item.appendChild(image_link); //ссылка, в которой находится картинка
 		image_link.appendChild(img); //картинка
-		//sldr_item.appendChild(link); // отдельная ссылка на публикацию
+		sldr_item.appendChild(link); // отдельная ссылка на публикацию
 		sldr_item.appendChild(title); // заголовок
 	}
 
@@ -394,12 +404,7 @@ const createEl = (id, text, tag, _class) => {
 			var link = document.createElement('a');
 		
 			link.href = slider.get_link(data[j]['content']);
-			
-			//console.log(link.href);
-			//link.target = "_blank";
-			//link.innerHTML = "Ccылка на книгу";
-			
-			
+
 			var image_link = document.createElement('a');
 			image_link.href = link.href;
 			

@@ -51,7 +51,7 @@ class Db{
 	   	  SELECT events_eventcontent.id,events_eventcontent.title,events_eventcontent.content,events_event.start_date,events_event.end_date
 		   FROM events_eventcontent
 		   JOIN events_event ON events_eventcontent.event_id = events_event.id
-		   ORDER BY id DESC LIMIT 10');
+		   ORDER BY id DESC LIMIT 30');
 	}
 
 	public function news(){
