@@ -288,7 +288,7 @@ table.filter tr.h2 td {
     font-family: Times, serif;
     font-size: 120%;
     line-height: 700%;
-    /*color:#6c000c; */
+    //color:#6c000c;
     height: 100px;
     /*border-bottom:solid 1px #ddd;*/
 }
@@ -297,7 +297,7 @@ table.filter tr.h2 td {
     font-family: Helvetica Neue Condensed Black, serif;
     font-size: 100%;
     font-style: italic;
-    text-align: left;
+    text-align: right;
     height: 150px;
     text-decoration: underline;
 }
@@ -896,13 +896,9 @@ ol[class^='badge'] li:before {
     min-width: 215px;
 }
 
-
-/*
-.dib #newbooks
-{
-	background:url(../img/newbooks.png) 0 20px no-repeat;
+.dib #newbooks {
+    /*background:url(../img/newbooks.png) 0 20px no-repeat;*/
 }
-*/
 
 .dib #bookrating {
     background: url(../img/bookrating.png) 0 20px no-repeat;

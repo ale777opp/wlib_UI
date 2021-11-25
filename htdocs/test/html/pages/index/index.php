@@ -27,16 +27,16 @@ $news=$con->data;
 			display: grid;
 			grid-gap: 1vw;
 			grid-template-areas:
-        "events	  playbill 	gap3"
+        "gap	  playbill 	gap3"
         "events	  playbill 	books"
         "events   playbill 	books"
         "events   news 		books"
-        "events   news 		books"
+        "events	  news 		books"
         "calendar news 		books"
         "calendar news 		gap1"
         "calendar gap2 		gap1";
         	grid-template-columns: 5fr 8fr 6fr;
-  			grid-template-rows: repeat(8, 110px);
+  			grid-template-rows: repeat(8, 90px);
 		}
 		#gap {
 			grid-area: gap;
@@ -52,9 +52,7 @@ $news=$con->data;
 		}	
 		#playbill {
   			grid-area: playbill;
-  			background-color: lightgreen;
-			opacity: 0.5;  
-		}
+  		}
 		#books_container {
   			grid-area: books;
 			font-size: medium;  
@@ -119,6 +117,94 @@ $news=$con->data;
             color: #fff;
         }
     </style>
+<style>
+.slperekhodnik{
+max-width: 38em;
+margin: 0 auto;
+width: 100%;
+}
+
+.gablok_sedakoda{
+width: 100%;
+margin: 0 auto;
+overflow: hidden;
+}
+
+.slayder_karusel{
+position: relative;
+width: 500%;
+font-size: 0;
+animation: 8s gablok_sedakoda-ani infinite;
+}
+
+.slayder_karusel figure{
+width: 20%;
+height: auto;
+display: inline-block;
+position: inherit;
+}
+
+.slayder_karusel img{
+max-width: 100%;
+vertical-align: bottom;
+}
+
+.slayder_karusel img:hover{
+filter: grayscale(90%);
+}
+
+.slayder_karusel figure figcaption{
+position: absolute;
+font-family: 'Roboto';
+font-size: 1.4rem;
+font-weight: 100;
+text-transform: uppercase;
+bottom: 0;
+background: rgba(0,0,0,0.6);
+color: #fff;
+width: 100%;
+padding: .5em;
+}
+
+@keyframes gablok_sedakoda-ani{
+0%{
+left: 0%;
+}
+
+20%{
+left: 0%;
+}
+
+25%{
+left: -100%;
+}
+
+45%{
+left: -100%;
+}
+
+50%{
+left: -200%;
+}
+
+70%{
+left: -200%;
+}
+
+75%{
+left: -300%;
+}
+
+95%{
+left: -300%;
+}
+
+100%{
+left: -400%;
+}
+
+}
+</style>
 
 <div id="infor">
 	<div class="grid_container">
@@ -126,7 +212,18 @@ $news=$con->data;
 		<div id='gap1'></div>
 		<div id='gap2'></div>
 		<div id='gap3'></div>
-		<div id='playbill'>playbill
+		<div id='playbill'>
+			<div class="slperekhodnik">
+				<aside class="gablok_sedakoda">
+					<div class="slayder_karusel">
+	<figure><img src="http://liart.ru/media/files/img/2020/12052020/1205.jpg" alt=""><figcaption>1.</figcaption></figure>
+	<figure><img src="http://liart.ru/media/files/img/2020/21062020/LOVE_WAR.jpg" alt=""><figcaption>2.</figcaption></figure>
+	<figure><img src="http://liart.ru/media/files/img/2020/10062020/vhutemas.jpg" alt=""><figcaption>3.</figcaption></figure>
+	<figure><img src="http://liart.ru/media/files/img/2020/16042020/gallery_slide.jpg" alt=""><figcaption>4.</figcaption></figure>
+	<figure><img src="http://liart.ru/media/files/img/2020/22122020/2212.jpg" alt=""><figcaption>5.</figcaption></figure>
+					</div>
+				</aside>
+			</div>
 		<!--	
 		<img src="http://liart.ru/media/files/img/2020/13042020/v_online.gif" alt="" title="" style="display: none;">
 		<a href="http://liart.ru/ru/pages/RGBI_events_online/" class="nivo-imageLink" style="display: block;">
@@ -141,11 +238,8 @@ $news=$con->data;
 			<div class = "spacer h15x"></div>
 		</div>
 		<div id="news_container">
-			<div class="header"><center>Новости</center> </div>
+			<div class="header"><center>Новости</center></div>
 			<div class = "spacer h15x"></div>
-			<!-- <img src="http://192.168.1.18/media/uploads/newsavatars/2021/11/1dccb85c23264bdcaafa6d00dea62bd2.jpg" alt="аватар img"> -->
-			<!-- http://192.168.1.18/media/uploads/newsavatars/2021/11/1dccb85c23264bdcaafa6d00dea62bd2.jpg -->
-			<!-- http://192.168.1.18/media/files/img/2021/09112021/1.jpg     (?<=src=\\")(.+?)(?=\\"\salt)          -->	
 		</div>
 		<div id='almanac'><span style="text-decoration:underline;">Календарь событий на месяц</span>
 		<table id="calendar2">
@@ -233,7 +327,10 @@ element.get_link = function(text){
 		}
 	}
 
-let j =2;
+let j = 2; //книги
+let k = 3; //новости
+let i = 3; //события
+
 let htmlSpan = `<span class = "curs" onclick="alert('CLICK!');">Еще...</span>`;
 
 // books \/
@@ -247,15 +344,18 @@ books_container.append(htmlBooksObject);
 
 let books_content = document.getElementById('books_content');
 
+let img_books = document.createElement('img');
+img_books.src = "http://liart.ru/media/uploads/newinlib/itemavatars/big/" + books[j]['avatar_img_name'];
+img_books.style = "padding:10px;";
+img_books.className = "image";
+books_content.append(img_books);
+
 let p_books = document.createElement('p');
-let img_p_books = "http://liart.ru/media/uploads/newinlib/itemavatars/big/" + books[j]['avatar_img_name'];
-p_books.innerHTML = `<img src=${img_p_books} alt="book image" align="left" 
-  vspace="5" hspace="5">${books[j]['content']}`;
-p_books.style = "line-height:1.5em;";
-p_books.style = "padding: 10px;";
+p_books.innerHTML = books[j]['content'];
+p_books.style = "line-height:1.5em;padding: 10px;";
 p_books.className = "image";
 books_content.append(p_books);
-
+/*
 let a_books = document.createElement('a');
 a_books.href = element.get_link(books[j]['content']);
 a_books.className = "button15";
@@ -263,47 +363,50 @@ a_books.id = "more_books";
 a_books.target = "_blank";
 a_books.innerHTML = "Ccылка на книгу";
 books_content.append(a_books);
-
+*/
 let else_books = document.createElement('div');
 else_books.className = "else1";
 else_books.innerHTML = htmlSpan;
 books_content.append(else_books);
 /*
 var title = document.createElement('p');
-		title.innerHTML = data[i]['title'];
-		title.style = "line-height:1.5em;";
-
-spacer
+title.innerHTML = data[i]['title'];
+title.style = "line-height:1.5em;";
 */
 //events \/
 let events = <?php echo json_encode($events); ?>;
-let eventsTape ={};
+//let eventsTape = {};
 let events_container = document.getElementById('events_container');
-eventsTape.start = 1;
-eventsTape.end = 4;
+//eventsTape.start = 1;
+//eventsTape.end = 4;
 
-for(var i=eventsTape.start;i<eventsTape.end;i++){
+//for(var i=eventsTape.start;i<eventsTape.end;i++){
 let htmlEventsObject = document.createElement('div');
 htmlEventsObject.className = "widget";
-eventsTime = `<p>Начало: ${events[i]['start_date']}</p><p>Конец: ${events[i]['end_date']}</p>`;
+eventsTime = `<p style="text-align:left;">Начало: ${events[i]['start_date']}</p><p style="text-align:left";>Окончание: ${events[i]['end_date']}</p>`;
 eventsTitle = `<center>${events[i]['title']}</center><br>`;
-eventsContent = `<div>${events[i]['content']}</div>`;
-htmlEventsObject.innerHTML = eventsTitle + eventsContent + eventsTime + htmlSpan + `<hr>`;
-//htmlEventsObject.id = "events_content";
+htmlEventsObject.innerHTML = eventsTitle + eventsTime;
+htmlEventsObject.id = "events_content";
 events_container.appendChild(htmlEventsObject);
 
-//let events_content = document.getElementById('events_content');
-//let htmlContinueObjectEvents = document.createElement('div');
-//htmlContinueObjectEvents.className = "else1";
-//htmlContinueObjectEvents.innerHTML = htmlSpan+`<br><p>Начало: ${events[j]['start_date']}</p><br><p>Конец: ${events[j]['end_date']}</p>`;
-//events_content.append(htmlContinueObjectEvents);
-}
+let events_content = document.getElementById('events_content');
+
+let p_events = document.createElement('p');
+//p_events.className = "else1";
+p_events.innerHTML = `${events[i]['content']}<hr>`;
+events_content.append(p_events);
+
+let else_events = document.createElement('div');
+else_events.className = "else1";
+else_events.innerHTML = htmlSpan;
+events_content.append(else_events);
+//}
 
 //news \/
 let news = <?php echo json_encode($news); ?>;
 let news_container = document.getElementById('news_container');
 let htmlNewsObject = document.createElement('div');
-htmlNewsObject.innerHTML = `<p><cenetr>${news[j]['title']}</center></p>`;
+htmlNewsObject.innerHTML = `<p><cenetr>${news[k]['title']}</center></p>`;
 /*
 let newsImg =[];
 newsImg = news[j]['content'].match(/price\[(\d+)\]\[(\d+)\]/ig);
@@ -315,26 +418,25 @@ news_container.appendChild(htmlNewsObject);
 
 let news_content = document.getElementById('news_content');
 
-	let img_news = document.createElement('img');
-	img_news.src = "http://192.168.1.18/media/uploads/newsavatars/" + news[j]['avatar_img_name'];
-	img_news.style = "padding:10px;height: 200px; width: 240px;";
-	news_content.append(img_news);
+let img_news = document.createElement('img');
+img_news.src = "http://192.168.1.18/media/uploads/newsavatars/" + news[k]['avatar_img_name'];
+img_news.style = "padding:10px;height: 200px; width: 240px;";
+news_content.append(img_news);
 	 
-	let text_news = document.createElement('div');
-	text_news.className = "text_news";
-	text_news.innerHTML = news[j]['content'];
-	news_content.append(text_news);
+let text_news = document.createElement('div');
+text_news.className = "text_news";
+text_news.innerHTML = news[k]['content'];
+news_content.append(text_news);
 
-	let else_news = document.createElement('div');
-	else_news.className = "else1";
-	else_news.innerHTML = htmlSpan;
-	news_content.append(else_news);
+let else_news = document.createElement('div');
+else_news.className = "else1";
+else_news.innerHTML = htmlSpan;
+news_content.append(else_news);
 
-	/*
-		<img src="http://192.168.1.18/media/uploads/newsavatars/2021/11/1dccb85c23264bdcaafa6d00dea62bd2.jpg" alt="аватар img"> -->
-			<!-- http://192.168.1.18/media/uploads/newsavatars/2021/11/1dccb85c23264bdcaafa6d00dea62bd2.jpg -->
-			<!-- http://192.168.1.18/media/files/img/2021/09112021/1.jpg     (?<=src=\\")(.+?)(?=\\"\salt)    
-		*/		
+/*
+http://192.168.1.18/media/uploads/newsavatars/2021/11/1dccb85c23264bdcaafa6d00dea62bd2.jpg 
+http://192.168.1.18/media/files/img/2021/09112021/1.jpg     (?<=src=\\")(.+?)(?=\\"\salt)    
+*/		
 //-------------------------------------
 /*
 var data = books;
