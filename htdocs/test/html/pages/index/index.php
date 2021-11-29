@@ -1,8 +1,6 @@
 <?php 
 ///htdocs/wlib/html/pages/index
-echo "include";
 include (THEPAGESPATH.'/includes/searchdiv.php');
-echo "require";
 require_once "get_page_info.php";
 
 $con = new Db();
@@ -30,13 +28,13 @@ $news=$con->data;
         "gap	  playbill 	gap3"
         "events	  playbill 	books"
         "events   playbill 	books"
-        "events   news 		books"
+        "events   news		books"
         "events	  news 		books"
         "calendar news 		books"
         "calendar news 		gap1"
         "calendar gap2 		gap1";
         	grid-template-columns: 5fr 8fr 6fr;
-  			grid-template-rows: repeat(8, 90px);
+  			grid-template-rows: repeat(8, min-content);
 		}
 		#gap {
 			grid-area: gap;
@@ -59,6 +57,7 @@ $news=$con->data;
 		}
 		#events_container {
 			grid-area: events;
+			height: auto;
 			font-size: medium;
 		}
 		#news_container {
@@ -69,9 +68,11 @@ $news=$con->data;
 			grid-area: calendar;
 			border: 4px double black; 
     		padding: 10px; 
+			height: 88%;
 		}
-		[id$='_content'] {
+		[id$='_content_?'] {
 			font-size: medium;
+			font-family: Helvetica Neue Condensed Bold;
 		}
 		p > img{
 			display:none;
@@ -116,16 +117,16 @@ $news=$con->data;
             background: rgb(220, 0, 0);
             color: #fff;
         }
-    </style>
+</style>
 <style>
 .slperekhodnik{
-max-width: 38em;
+max-width: 34em;
 margin: 0 auto;
-width: 100%;
+/*width: 100%;  + */
 }
 
 .gablok_sedakoda{
-width: 100%;
+	width: 100%;
 margin: 0 auto;
 overflow: hidden;
 }
@@ -134,8 +135,9 @@ overflow: hidden;
 position: relative;
 width: 500%;
 font-size: 0;
-animation: 8s gablok_sedakoda-ani infinite;
-}
+animation: 25s gablok_sedakoda-ani infinite;
+height: 270px; /*  +  */
+ }
 
 .slayder_karusel figure{
 width: 20%;
@@ -148,18 +150,21 @@ position: inherit;
 max-width: 100%;
 vertical-align: bottom;
 }
-
+.slayder_karusel figure{
+	transform: none;
+}  
+/*
 .slayder_karusel img:hover{
 filter: grayscale(90%);
 }
-
+*/
 .slayder_karusel figure figcaption{
 position: absolute;
 font-family: 'Roboto';
 font-size: 1.4rem;
 font-weight: 100;
 text-transform: uppercase;
-bottom: 0;
+bottom: -40px; /*+ */
 background: rgba(0,0,0,0.6);
 color: #fff;
 width: 100%;
@@ -167,6 +172,7 @@ padding: .5em;
 }
 
 @keyframes gablok_sedakoda-ani{
+
 0%{
 left: 0%;
 }
@@ -213,14 +219,15 @@ left: -400%;
 		<div id='gap2'></div>
 		<div id='gap3'></div>
 		<div id='playbill'>
+		<div class = "spacer h60x"></div>
 			<div class="slperekhodnik">
 				<aside class="gablok_sedakoda">
 					<div class="slayder_karusel">
-	<figure><img src="http://liart.ru/media/files/img/2020/12052020/1205.jpg" alt=""><figcaption>1.</figcaption></figure>
-	<figure><img src="http://liart.ru/media/files/img/2020/21062020/LOVE_WAR.jpg" alt=""><figcaption>2.</figcaption></figure>
-	<figure><img src="http://liart.ru/media/files/img/2020/10062020/vhutemas.jpg" alt=""><figcaption>3.</figcaption></figure>
-	<figure><img src="http://liart.ru/media/files/img/2020/16042020/gallery_slide.jpg" alt=""><figcaption>4.</figcaption></figure>
-	<figure><img src="http://liart.ru/media/files/img/2020/22122020/2212.jpg" alt=""><figcaption>5.</figcaption></figure>
+	<figure class="nohover"><img src="http://liart.ru/media/files/img/2020/12052020/1205.jpg" alt=""><figcaption>.</figcaption></figure>
+	<figure class="nohover"><img src="http://liart.ru/media/files/img/2020/21062020/LOVE_WAR.jpg" alt=""><figcaption>..</figcaption></figure>
+	<figure class="nohover"><img src="http://liart.ru/media/files/img/2020/10062020/vhutemas.jpg" alt=""><figcaption>...</figcaption></figure>
+	<figure class="nohover"><img src="http://liart.ru/media/files/img/2020/16042020/gallery_slide.jpg" alt=""><figcaption>....</figcaption></figure>
+	<figure class="nohover"><img src="http://liart.ru/media/files/img/2020/22122020/2212.jpg" alt=""><figcaption>.....</figcaption></figure>
 					</div>
 				</aside>
 			</div>
@@ -237,25 +244,16 @@ left: -400%;
 			<div class="header"><center>Сегодня в РГБИ</center></div>
 			<div class = "spacer h15x"></div>
 		</div>
-		<div id="news_container">
+		<div id="news_container" >
 			<div class="header"><center>Новости</center></div>
 			<div class = "spacer h15x"></div>
 		</div>
 		<div id='almanac'><span style="text-decoration:underline;">Календарь событий на месяц</span>
 		<table id="calendar2">
             <thead>
-                <tr>
-                <td>
-                    <td colspan="5">
-                       <td>
-                            <tr>
-                            <td>Пн
-                            <td>Вт
-                            <td>Ср
-                            <td>Чт
-                            <td>Пт
-                            <td>Сб
-                            <td>Вс
+                <tr><td></td><td colspan="5"></td><td></td></tr>
+                <tr><td>Пн</td><td>Вт</td><td>Ср</td><td>Чт</td><td>Пт</td><td>Сб</td><td>Вс</td></tr>
+			</thead>	
             <tbody>
         </table>
 		</div>
@@ -329,7 +327,7 @@ element.get_link = function(text){
 
 let j = 2; //книги
 let k = 3; //новости
-let i = 3; //события
+// let i = 3; //события
 
 let htmlSpan = `<span class = "curs" onclick="alert('CLICK!');">Еще...</span>`;
 
@@ -375,21 +373,25 @@ title.style = "line-height:1.5em;";
 */
 //events \/
 let events = <?php echo json_encode($events); ?>;
-//let eventsTape = {};
+let eventsTape = {};
 let events_container = document.getElementById('events_container');
-//eventsTape.start = 1;
-//eventsTape.end = 4;
+eventsTape.start = 3;
+eventsTape.end = 5;
 
-//for(var i=eventsTape.start;i<eventsTape.end;i++){
+for(var i=eventsTape.start;i<=eventsTape.end;i=i+2){
+	console.log(i);
+	console.log(events[i]['id']);
 let htmlEventsObject = document.createElement('div');
 htmlEventsObject.className = "widget";
-eventsTime = `<p style="text-align:left;">Начало: ${events[i]['start_date']}</p><p style="text-align:left";>Окончание: ${events[i]['end_date']}</p>`;
+eventsTime = `<p style="text-align:left;">Начало: ${events[i]['start_date']}</p>
+<p style="text-align:left;">Окончание: ${events[i]['end_date']}</p>`;
 eventsTitle = `<center>${events[i]['title']}</center><br>`;
 htmlEventsObject.innerHTML = eventsTitle + eventsTime;
-htmlEventsObject.id = "events_content";
-events_container.appendChild(htmlEventsObject);
+eventsId = "events_content_" + i;
+htmlEventsObject.id = eventsId;
+events_container.append(htmlEventsObject);
 
-let events_content = document.getElementById('events_content');
+let events_content = document.getElementById(eventsId);
 
 let p_events = document.createElement('p');
 //p_events.className = "else1";
@@ -400,7 +402,7 @@ let else_events = document.createElement('div');
 else_events.className = "else1";
 else_events.innerHTML = htmlSpan;
 events_content.append(else_events);
-//}
+}
 
 //news \/
 let news = <?php echo json_encode($news); ?>;

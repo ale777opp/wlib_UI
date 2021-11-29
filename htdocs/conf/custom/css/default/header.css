@@ -1,13 +1,5 @@
 /*шапка  /htdocs/conf/custom/css/default   */
 
-
-/*
-.header_top
-{
-	background: #FAFAFA url(../img/logo_gray.jpg) no-repeat;  /* 10% 15px 
-}
-*/
-
 .lk {
     display: none;
     /*background:#900;*/
@@ -77,6 +69,7 @@
     text-align: center;
     /*text-transform:uppercase; */
 }
+
 
 /*
 .z p {
