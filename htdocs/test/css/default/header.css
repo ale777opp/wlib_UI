@@ -30,37 +30,9 @@
     border-left: 1px solid #fefefe;
 }
 
-
-/* старый вариант заголовка 
-#header
-{
-	width:100%;
-}
-#header > div
-{
-	display:table;
-	width:80%;
-	margin:0 auto;
-}
-#header > div > div
-{
-	display:table-cell;
-	vertical-align:middle;
-	height:100px;
-}
-#index
-{
-	display:inline-block;
-	vertical-align:middle;
-	color:#f0f0f0;
-	margin-left:230px;
-	font-weight:bold;
-}
-старый вариант заголовка */
-
 .top_logo {
     background: #FAFAFA url(../img/logo_gray.jpg) no-repeat center;
-    height: 250px;
+    height: 180px;
     width: 250px;
     flex: 0 0 auto;
     margin-left: 100px;
@@ -84,14 +56,13 @@
 }
 
 .inner {
-    font-family: PT Serif;
-    color: #f0f0f0;
     font-weight: bold;
     color: gray;
     /* cursor: pointer; */
 }
 
 .p p {
+    font-family: ptserifbolditalic;
     font-weight: 400;
     font-size: 1.5em;
     line-height: 120%;
@@ -99,14 +70,13 @@
 }
 
 .n p {
+    font-family: ptserifbold;
     font-weight: 700;
-    font-style: normal;
-    color: black;
+    color: #7F7F7F;
     font-size: 3em;
     text-align: center;
     /*text-transform:uppercase; */
 }
-
 
 /*
 .z p {

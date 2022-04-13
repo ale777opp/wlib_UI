@@ -190,6 +190,26 @@ body, html
 {
 	height: 33%;
 }
+.h5x
+{
+	height: 5px;
+}
+.h10x
+{
+	height: 10px;
+}
+.h15x
+{
+	height: 15px;
+}
+.h20x
+{
+	height: 20px;
+}
+.h25x
+{
+	height: 25px;
+}
 .h30x
 {
 	height: 30px;

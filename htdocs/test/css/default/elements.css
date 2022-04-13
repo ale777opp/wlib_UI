@@ -275,11 +275,10 @@ table.filter tr.h td, table.filter tr.h1 td, table.filter tr.h2 td
 }
 .else1
 {
-	font-family:Times, serif;
+	font-family:Helvetica Neue Condensed Black, serif;
 	font-size: 100%;
 	font-style:italic;
-	//color:#6c000c;
-	text-align:right;
+	text-align:left;
 	height:150px;
 	text-decoration:underline;
 }

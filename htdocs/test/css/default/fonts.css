@@ -1,136 +1,178 @@
 /*шрифты*/
-@font-face
-{
-	font-family: 'fontello';
-	src:	url('fonts/fontello.eot') format('embedded-opentype'),
-			url('fonts/fontello.woff') format('woff'),
-			url('fonts/fontello.ttf') format('truetype'),
-			url('fonts/fontello.svg') format('svg');
-	font-weight: normal;
-	font-style: normal;
-}
+
 @font-face {
-    font-family:Pragmatica HW; /* Гарнитура шрифта */
-    src: url("fonts/Pragmatica HW.ttf") format("truetype"); /* Путь к файлу со шрифтом */
-    font-style: normal;
-    font-weight: normal;
-   
-   }
-   @font-face {
-    font-family:PrincetownD; /* Гарнитура шрифта */
-    src: url(fonts/PrincetownD.ttf) format("truetype"); /* Путь к файлу со шрифтом */
+    font-family: 'fontello';
+    src: url('fonts/fontello.eot') format('embedded-opentype'), url('fonts/fontello.woff') format('woff'), url('fonts/fontello.ttf') format('truetype'), url('fonts/fontello.svg') format('svg');
     font-weight: normal;
     font-style: normal;
-   }
-.times
-{
-	font-family: Times, serif;
 }
-.f160
-{
-	font-size: 160%;
+
+@font-face {
+    font-family: Pragmatica HW;
+    src: url("fonts/Pragmatica HW.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
 }
-.f150
-{
-	font-size: 150%;
+
+@font-face {
+    font-family: PrincetownD;
+    /* Гарнитура шрифта */
+    src: url(fonts/PrincetownD.ttf) format("truetype");
+    /* Путь к файлу со шрифтом */
+    font-weight: normal;
+    font-style: normal;
 }
-.f140
-{
-	font-size: 140%;
+
+@font-face {
+    font-family: 'ptserif';
+    src: url('fonts/ptserif.ttf') format('truetype'), url('fonts/ptserif.woff') format('woff'), url('fonts/ptserif.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
 }
-.f120
-{
-	font-size: 120%;
+
+@font-face {
+    font-family: 'ptserifbold';
+    src: url('fonts/ptserifbold.ttf') format('truetype'), url('fonts/ptserifbold.woff') format('woff'), url('fonts/ptserifbold.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
 }
-.f100
-{
-	font-size: 100%;
+
+@font-face {
+    font-family: 'ptserifbolditalic';
+    src: url('fonts/ptserifbolditalic.ttf') format('truetype'), url('fonts/ptserifbolditalic.woff') format('woff'), url('fonts/ptserifbolditalic.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
 }
-.f90
-{
-	font-size: 90%;
+
+@font-face {
+    font-family: 'ptserifitalic';
+    src: url('fonts/ptserifitalic.ttf') format('truetype'), url('fonts/ptserifitalic.woff') format('woff'), url('fonts/ptserifitalic.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
 }
-.f80
-{
-	font-size: 80%;
+
+@font-face {
+    font-family: 'Helvetica Neue Condensed Black';
+    src: url('fonts/Helvetica Neue Condensed Black.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
 }
-.f75
-{
-	font-size: 75%;
+
+@font-face {
+    font-family: 'Helvetica Neue Condensed Bold';
+    src: url('fonts/Helvetica Neue Condensed Bold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
 }
-.f70
-{
-	font-size: 70%;
+
+.times {
+    font-family: Times, serif;
 }
-.lh200
-{
-	line-height:200%;
+
+.f160 {
+    font-size: 160%;
 }
-.lh160
-{
-	line-height:160%;
+
+.f150 {
+    font-size: 150%;
 }
-.lh150
-{
-	line-height:150%;
+
+.f140 {
+    font-size: 140%;
 }
-.lh140
-{
-	line-height:140%;
+
+.f120 {
+    font-size: 120%;
 }
-.lh120
-{
-	line-height:120%;
+
+.f100 {
+    font-size: 100%;
 }
-.lh110
-{
-	line-height:110%;
+
+.f90 {
+    font-size: 90%;
 }
-.lh100
-{
-	line-height:100%;
+
+.f80 {
+    font-size: 80%;
 }
-.lh80
-{
-	line-height:80%;
+
+.f75 {
+    font-size: 75%;
 }
-.b
-{
-	font-weight:bold;
+
+.f70 {
+    font-size: 70%;
 }
-.i
-{
-	font-style:italic;
+
+.lh200 {
+    line-height: 200%;
 }
-.u
-{
-	text-decoration:underline;
+
+.lh160 {
+    line-height: 160%;
 }
-.nowrap
-{
-	white-space: nowrap;
+
+.lh150 {
+    line-height: 150%;
 }
-.i25x
-{
-	text-indent: 25px;
+
+.lh140 {
+    line-height: 140%;
 }
-.ls1x
-{
-	letter-spacing: 1px;
+
+.lh120 {
+    line-height: 120%;
 }
-.ffg
-{
-	font-family: Georgia;
+
+.lh110 {
+    line-height: 110%;
 }
-.ffv
-{
-	font-family: Verdana;
+
+.lh100 {
+    line-height: 100%;
 }
-.fft
-{
-	font-family: Tahoma;
+
+.lh80 {
+    line-height: 80%;
 }
-.fftimes
-{
-	font-family: Times, serif;
+
+.b {
+    font-weight: bold;
+}
+
+.i {
+    font-style: italic;
+}
+
+.u {
+    text-decoration: underline;
+}
+
+.nowrap {
+    white-space: nowrap;
+}
+
+.i25x {
+    text-indent: 25px;
+}
+
+.ls1x {
+    letter-spacing: 1px;
+}
+
+.ffg {
+    font-family: Georgia;
+}
+
+.ffv {
+    font-family: Verdana;
+}
+
+.fft {
+    font-family: Tahoma;
+}
+
+.fftimes {
+    font-family: Times, serif;
 }
