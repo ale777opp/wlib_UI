@@ -23,18 +23,18 @@ $news=$con->data;
 			text-align: center;
 
 			display: grid;
-			grid-gap: 0.5vw;
+			grid-gap: 1vw;
 			grid-template-areas:
-        "events	  playbill 	gap3"
+        "gap	  playbill 	gap3"
         "events	  playbill 	books"
         "events   playbill 	books"
-        "events   news 		books"
-        "events   news 		books"
+        "events   news		books"
+        "events	  news 		books"
         "calendar news 		books"
         "calendar news 		gap1"
         "calendar gap2 		gap1";
         	grid-template-columns: 5fr 8fr 6fr;
-  			grid-template-rows: repeat(8, 110px);
+  			grid-template-rows: repeat(8, min-content);
 		}
 		#gap {
 			grid-area: gap;
@@ -50,15 +50,14 @@ $news=$con->data;
 		}	
 		#playbill {
   			grid-area: playbill;
-  			background-color: lightgreen;
-			opacity: 0.5;  
-		}
+  		}
 		#books_container {
   			grid-area: books;
 			font-size: medium;  
 		}
 		#events_container {
 			grid-area: events;
+			height: auto;
 			font-size: medium;
 		}
 		#news_container {
@@ -69,9 +68,17 @@ $news=$con->data;
 			grid-area: calendar;
 			border: 4px double black; 
     		padding: 10px; 
+			height: 88%;
 		}
-		[id$='_content'] {
+		[id$='_content_?'] {
 			font-size: medium;
+			font-family: Helvetica Neue Condensed Bold;
+		}
+		p > img{
+			display:none;
+		}
+		p.image > img{
+			display:block;
 		}
 </style>
 <style>
@@ -110,7 +117,100 @@ $news=$con->data;
             background: rgb(220, 0, 0);
             color: #fff;
         }
-    </style>
+</style>
+<style>
+.slperekhodnik{
+max-width: 34em;
+margin: 0 auto;
+/*width: 100%;  + */
+}
+
+.gablok_sedakoda{
+	width: 100%;
+margin: 0 auto;
+overflow: hidden;
+}
+
+.slayder_karusel{
+position: relative;
+width: 500%;
+font-size: 0;
+animation: 25s gablok_sedakoda-ani infinite;
+height: 270px; /*  +  */
+ }
+
+.slayder_karusel figure{
+width: 20%;
+height: auto;
+display: inline-block;
+position: inherit;
+}
+
+.slayder_karusel img{
+max-width: 100%;
+vertical-align: bottom;
+}
+.slayder_karusel figure{
+	transform: none;
+}  
+/*
+.slayder_karusel img:hover{
+filter: grayscale(90%);
+}
+*/
+.slayder_karusel figure figcaption{
+position: absolute;
+font-family: 'Roboto';
+font-size: 1.4rem;
+font-weight: 100;
+text-transform: uppercase;
+bottom: -40px; /*+ */
+background: rgba(0,0,0,0.6);
+color: #fff;
+width: 100%;
+padding: .5em;
+}
+
+@keyframes gablok_sedakoda-ani{
+
+0%{
+left: 0%;
+}
+
+20%{
+left: 0%;
+}
+
+25%{
+left: -100%;
+}
+
+45%{
+left: -100%;
+}
+
+50%{
+left: -200%;
+}
+
+70%{
+left: -200%;
+}
+
+75%{
+left: -300%;
+}
+
+95%{
+left: -300%;
+}
+
+100%{
+left: -400%;
+}
+
+}
+</style>
 
 <div id="infor">
 	<div class="grid_container">
@@ -118,52 +218,42 @@ $news=$con->data;
 		<div id='gap1'></div>
 		<div id='gap2'></div>
 		<div id='gap3'></div>
-		<div id='playbill'>playbill
+		<div id='playbill'>
+		<div class = "spacer h60x"></div>
+			<div class="slperekhodnik">
+				<aside class="gablok_sedakoda">
+					<div class="slayder_karusel">
+	<figure class="nohover"><img src="http://liart.ru/media/files/img/2020/12052020/1205.jpg" alt=""><figcaption>.</figcaption></figure>
+	<figure class="nohover"><img src="http://liart.ru/media/files/img/2020/21062020/LOVE_WAR.jpg" alt=""><figcaption>..</figcaption></figure>
+	<figure class="nohover"><img src="http://liart.ru/media/files/img/2020/10062020/vhutemas.jpg" alt=""><figcaption>...</figcaption></figure>
+	<figure class="nohover"><img src="http://liart.ru/media/files/img/2020/16042020/gallery_slide.jpg" alt=""><figcaption>....</figcaption></figure>
+	<figure class="nohover"><img src="http://liart.ru/media/files/img/2020/22122020/2212.jpg" alt=""><figcaption>.....</figcaption></figure>
+					</div>
+				</aside>
+			</div>
 		<!--	
 		<img src="http://liart.ru/media/files/img/2020/13042020/v_online.gif" alt="" title="" style="display: none;">
 		<a href="http://liart.ru/ru/pages/RGBI_events_online/" class="nivo-imageLink" style="display: block;">
 		<img src="http://liart.ru/media/files/img/2020/13042020/v_online.gif" alt="" title="" style="display: none;"></a>
 		-->
 		</div>
-		<div id="books_container" class="header">
-		<!-- старая версия слайдера \/ -->
-			<div class="dib w100">
-					<div onmousedown="searchNews(null,300);" class="header"><center>Из новых поступлений</center> </div>
-					<div id="newbooks"><!-- не трогать -->
-						<div id="sldr"></div>
-					</div><!-- не трогать -->
-					<a class="button15" id="more_books">Показать еще...</a>
-					<div class="spacer h10x"></div>
-					<div onmousedown="searchNews(null,300);" class="else1"><span>Список новых поступлений...</span></div>
+		<div id="books_container">
+			<div onmousedown="searchNews(null,300);" class="header"><center>Из новых поступлений</center> </div>
 			</div>
-		<!-- старая версия слайдера /\ -->		
-		</div>
 		<div  id="events_container">
 			<div class="header"><center>Сегодня в РГБИ</center></div>
 			<div class = "spacer h15x"></div>
 		</div>
-		<div id="news_container">
-			<div class="header"><center>Новости</center> </div>
+		<div id="news_container" >
+			<div class="header"><center>Новости</center></div>
 			<div class = "spacer h15x"></div>
-			<!-- <img src="http://192.168.1.18/media/uploads/newsavatars/2021/11/1dccb85c23264bdcaafa6d00dea62bd2.jpg" alt="аватар img"> -->
-			<!-- http://192.168.1.18/media/uploads/newsavatars/2021/11/1dccb85c23264bdcaafa6d00dea62bd2.jpg -->
-			<!-- http://192.168.1.18/media/files/img/2021/09112021/1.jpg     (?<=src=\\")(.+?)(?=\\"\salt)          -->	
 		</div>
 		<div id='almanac'><span style="text-decoration:underline;">Календарь событий на месяц</span>
 		<table id="calendar2">
             <thead>
-                <tr>
-                <td>
-                    <td colspan="5">
-                       <td>
-                                    <tr>
-                                        <td>Пн
-                                            <td>Вт
-                                                <td>Ср
-                                                    <td>Чт
-                                                        <td>Пт
-                                                            <td>Сб
-                                                                <td>Вс
+                <tr><td></td><td colspan="5"></td><td></td></tr>
+                <tr><td>Пн</td><td>Вт</td><td>Ср</td><td>Чт</td><td>Пт</td><td>Сб</td><td>Вс</td></tr>
+			</thead>	
             <tbody>
         </table>
 		</div>
@@ -222,80 +312,135 @@ const createEl = (id, text, tag, _class) => {
   el.textContent = text
   return el
 }
+let element = {}; 
+element.get_link = function(text){
+		var htmlObject = document.createElement('div');
+		htmlObject.innerHTML = text;
+		//проверка есть ли ссылка в публикации о новинке
+		if (htmlObject.innerHTML.indexOf("</a>") != -1) {
+			var link = htmlObject.getElementsByTagName('a');
+			return link[0].href;
+		}else{
+			return '#';
+		}
+	}
 
-let j =1;
+let j = 2; //книги
+let k = 3; //новости
+// let i = 3; //события
+
 let htmlSpan = `<span class = "curs" onclick="alert('CLICK!');">Еще...</span>`;
 
 // books \/
 let books = <?php echo json_encode($books); ?>;
-/*
+
 let books_container = document.getElementById('books_container');
 let htmlBooksObject = document.createElement('div');
-htmlBooksObject.innerHTML = books[j]['content'];
 htmlBooksObject.className = "widget";
 htmlBooksObject.id = "books_content";
-books_container.appendChild(htmlBooksObject);
+books_container.append(htmlBooksObject);
+
 let books_content = document.getElementById('books_content');
 
-let htmlContinueObject3 = document.createElement('img');
-htmlContinueObject3.className = "image";
-htmlContinueObject3.src = "http://liart.ru/media/uploads/newinlib/itemavatars/big/" + books[j]['avatar_img_name'];
-htmlContinueObject3.style = "padding:10px;";
-htmlContinueObject3.alt = "avatar book";
+let img_books = document.createElement('img');
+img_books.src = "http://liart.ru/media/uploads/newinlib/itemavatars/big/" + books[j]['avatar_img_name'];
+img_books.style = "padding:10px;";
+img_books.className = "image";
+books_content.append(img_books);
 
-books_content.append(htmlContinueObject3);
+let p_books = document.createElement('p');
+p_books.innerHTML = books[j]['content'];
+p_books.style = "line-height:1.5em;padding: 10px;";
+p_books.className = "image";
+books_content.append(p_books);
+/*
+let a_books = document.createElement('a');
+a_books.href = element.get_link(books[j]['content']);
+a_books.className = "button15";
+a_books.id = "more_books"; 
+a_books.target = "_blank";
+a_books.innerHTML = "Ccылка на книгу";
+books_content.append(a_books);
+*/
+let else_books = document.createElement('div');
+else_books.className = "else1";
+else_books.innerHTML = htmlSpan;
+books_content.append(else_books);
+/*
+var title = document.createElement('p');
+title.innerHTML = data[i]['title'];
+title.style = "line-height:1.5em;";
 */
 //events \/
 let events = <?php echo json_encode($events); ?>;
-let eventsTape ={};
+let eventsTape = {};
 let events_container = document.getElementById('events_container');
-eventsTape.start = 2;
-eventsTape.end = 2;
+eventsTape.start = 3;
+eventsTape.end = 5;
 
-for(var i=eventsTape.start;i<eventsTape.end;i++){
+for(var i=eventsTape.start;i<=eventsTape.end;i=i+2){
+	console.log(i);
+	console.log(events[i]['id']);
 let htmlEventsObject = document.createElement('div');
 htmlEventsObject.className = "widget";
-eventsTime = `<p>Начало: ${events[i]['start_date']}</p><p>Конец: ${events[i]['end_date']}</p>`;
+eventsTime = `<p style="text-align:left;">Начало: ${events[i]['start_date']}</p>
+<p style="text-align:left;">Окончание: ${events[i]['end_date']}</p>`;
 eventsTitle = `<center>${events[i]['title']}</center><br>`;
-eventsContent = `<div>${events[i]['content']}</div>`;
-htmlEventsObject.innerHTML = eventsTitle + eventsContent + eventsTime + htmlSpan + `<hr>`;
-//htmlEventsObject.id = "events_content";
-events_container.appendChild(htmlEventsObject);
+htmlEventsObject.innerHTML = eventsTitle + eventsTime;
+eventsId = "events_content_" + i;
+htmlEventsObject.id = eventsId;
+events_container.append(htmlEventsObject);
 
-//let events_content = document.getElementById('events_content');
-//let htmlContinueObjectEvents = document.createElement('div');
-//htmlContinueObjectEvents.className = "else1";
-//htmlContinueObjectEvents.innerHTML = htmlSpan+`<br><p>Начало: ${events[j]['start_date']}</p><br><p>Конец: ${events[j]['end_date']}</p>`;
-//events_content.append(htmlContinueObjectEvents);
+let events_content = document.getElementById(eventsId);
+
+let p_events = document.createElement('p');
+//p_events.className = "else1";
+p_events.innerHTML = `${events[i]['content']}<hr>`;
+events_content.append(p_events);
+
+let else_events = document.createElement('div');
+else_events.className = "else1";
+else_events.innerHTML = htmlSpan;
+events_content.append(else_events);
 }
 
 //news \/
 let news = <?php echo json_encode($news); ?>;
 let news_container = document.getElementById('news_container');
 let htmlNewsObject = document.createElement('div');
-htmlNewsObject.innerHTML = `<p><cenetr>${news[j]['title']}</center></p>${news[j]['content']}`;
+htmlNewsObject.innerHTML = `<p><cenetr>${news[k]['title']}</center></p>`;
+/*
+let newsImg =[];
+newsImg = news[j]['content'].match(/price\[(\d+)\]\[(\d+)\]/ig);
+<p><img  (?<=<p><img)(.+?)(?=(>\<\?p>))
+*/
 htmlNewsObject.className = "widget";
 htmlNewsObject.id = "news_content";
 news_container.appendChild(htmlNewsObject);
 
 let news_content = document.getElementById('news_content');
 
-let htmlContinueObjectNews = document.createElement('div');
-htmlContinueObjectNews.className = "else1";
-htmlContinueObjectNews.innerHTML = htmlSpan;
-news_content.append(htmlContinueObjectNews);
-
-		let img_news = document.createElement('img');
-		img_news.src = "http://192.168.1.18/media/uploads/newsavatars/" + news[j]['avatar_img_name'];
-		img_news.style = "padding:10px;";
+let img_news = document.createElement('img');
+img_news.src = "http://192.168.1.18/media/uploads/newsavatars/" + news[k]['avatar_img_name'];
+img_news.style = "padding:10px;height: 200px; width: 240px;";
 news_content.append(img_news);
+	 
+let text_news = document.createElement('div');
+text_news.className = "text_news";
+text_news.innerHTML = news[k]['content'];
+news_content.append(text_news);
 
-		/*
-		<img src="http://192.168.1.18/media/uploads/newsavatars/2021/11/1dccb85c23264bdcaafa6d00dea62bd2.jpg" alt="аватар img"> -->
-			<!-- http://192.168.1.18/media/uploads/newsavatars/2021/11/1dccb85c23264bdcaafa6d00dea62bd2.jpg -->
-			<!-- http://192.168.1.18/media/files/img/2021/09112021/1.jpg     (?<=src=\\")(.+?)(?=\\"\salt)    
-		*/		
+let else_news = document.createElement('div');
+else_news.className = "else1";
+else_news.innerHTML = htmlSpan;
+news_content.append(else_news);
+
+/*
+http://192.168.1.18/media/uploads/newsavatars/2021/11/1dccb85c23264bdcaafa6d00dea62bd2.jpg 
+http://192.168.1.18/media/files/img/2021/09112021/1.jpg     (?<=src=\\")(.+?)(?=\\"\salt)    
+*/		
 //-------------------------------------
+/*
 var data = books;
 var slider = {};
 
@@ -310,22 +455,18 @@ var slider = {};
 			return '#';
 		}
 	}
-	
-	//счетчики для слайдера
-	slider.start = 0;
-	slider.end = 3;
-
+	let k = 2;
 	var prnt = document.getElementById('sldr');
 
 	slider.cycle = function(){
-		for(var i=slider.start;i<slider.end;i++){
-			console 
+		//for(var i=slider.start;i<slider.end;i++){ //#1
+		
 		var sldr_item = document.createElement('div');
 		sldr_item.className = "sldr-item";
 		sldr_item.style = "width:300px;";
 		
 		var img = document.createElement('img');
-		img.src = "http://liart.ru/media/uploads/newinlib/itemavatars/big/" + data[i]['avatar_img_name'];
+		img.src = "http://liart.ru/media/uploads/newinlib/itemavatars/big/" + data[k]['avatar_img_name'];
 		img.style = "padding:10px;";
 	
 		var link = document.createElement('a');
@@ -336,14 +477,13 @@ var slider = {};
 		link.target = "_blank";
 		link.innerHTML = "Ccылка на книгу";
 		
-		
 		var image_link = document.createElement('a');
 		image_link.href = link.href;
 		
 		//если ссылки в публикации о новинке нет, то атрибут ссылки удаляется
 		if(link.href.slice(-1) == '#'){
 			image_link.removeAttribute('href');
-		}
+		//} //#1
 		
 		image_link.target = "_blank";
 		
@@ -363,160 +503,8 @@ var slider = {};
 	}
 
 	slider.cycle();
-
-	// пролистывание слайдера
-	slider.add_books = function(){
-		
-		prnt.innerHTML = '';
-		
-		if(slider.end == data.length){
-			slider.start=0;
-			slider.end=3;
-		}else{
-			slider.start+=3;
-			slider.end+=3;
-		}
-		
-		slider.cycle();
-	} 
-	
-	
-	//счетчики для листа
-	slider.startlist = 3;
-	slider.endlist = 9;
-	
-	//контейнер для листа
-	var lstbks = document.getElementById('lstbks');
-	
-	//цикл для добавления книг в лист
-	slider.cyclelist = function(){
-		
-		for(var j=slider.startlist;j<slider.endlist;j++){
-			
-			var lst_item = document.createElement('div');
-			lst_item.className = "list-item";
-			lst_item.style = "width:300px;";
-			
-			var img = document.createElement('img');
-			img.src = "http://liart.ru/media/uploads/newinlib/itemavatars/big/" + data[j]['avatar_img_name'];
-			img.style = "padding:10px;";
-			
-			var link = document.createElement('a');
-		
-			link.href = slider.get_link(data[j]['content']);
-
-			var image_link = document.createElement('a');
-			image_link.href = link.href;
-			
-			//если ссылки в публикации о новинке нет, то атрибут ссылки удаляется
-			if(link.href.slice(-1) == '#'){
-				image_link.removeAttribute('href');
-			}
-			
-			image_link.target = "_blank";
-			
-			
-			var title = document.createElement('p');
-			var title_text = data[j]['title'];
-			
-			if(title_text.length>135){
-				title_text = title_text.substring(0,136) + " ...";
-			}
-			
-			
-			//title.innerHTML = data[j]['title'];
-			
-			title.innerHTML = title_text;
-			
-			title.style = "line-height:1.5em;";
-			
-			
-			lstbks.appendChild(lst_item); //элемент слайдера
-			lst_item.appendChild(image_link); //ссылка, в которой находится картинка
-			image_link.appendChild(img); //картинка
-			//sldr_item.appendChild(link); // отдельная ссылка на публикацию
-			lst_item.appendChild(title); // заголовок
-			
-
-		}
-
-	}
-	
-	
-	//добавление книг в лист
-	slider.add_books_list = function(){
-		
-		if(slider.endlist > 173){
-			document.getElementById('btn_add').style="display:none";
-		}
-		
-		slider.startlist+=6;
-		slider.endlist+=6;
-		slider.cyclelist();
-				
-	} 
-	
-	
-	document.getElementById('add_books').addEventListener('click',slider.add_books_list); 
-	document.getElementById('more_books').addEventListener('click',slider.add_books);
-
+*/
 </script>
-<script type="text/javascript">
-	//блок бездействия
-	var t;
-	document.onload = resetTimer;
-	document.onmousemove = resetTimer;
-	document.onmousedown = resetTimer; 
-	document.ontouchstart = resetTimer;
-	document.onclick = resetTimer;     
-	document.onscroll = resetTimer;    
-	document.onkeypress = resetTimer;
-
-
-	function clicker() {
-		document.getElementById('more_books').click();
-	}
-
-	function resetTimer() {
-		clearTimeout(t);
-		t = setTimeout(clicker, 15000)
-		  // 1000 milisec = 1 sec
-	}
-
-</script>
-<?php
-
-if($_POST){
-	if($_POST['from'] == 'liart.ru'){
-	
-		echo "<script type='text/javascript' defer>
-		document.getElementsByClassName('header')[0].innerHTML = 'Поиск...';
-		
-		//добавление запроса в строку поиска
-		document.getElementById('itemsimple').value = '".$_POST['opac']."'; 
-		
-		//очистка от слайдера и новых поступлений
-		document.getElementById('sldr').innerHTML= '<img src=http://liart.ru/media/files/img/2019/26032019/35.gif>';
-		var btn_sldr = document.getElementById('more_books');
-		btn_sldr.parentNode.removeChild(btn_sldr);
-		
-		//установка типа поиска
-		var type = document.getElementsByClassName('select')[0].lastChild;
-		type.className = 'iFT';
-		type.innerHTML = 'Все поля';
-		
-		//клик по кнопке	
-		var button = document.getElementById('simple_search').firstChild;
-		var event = new Event('mousedown');
-		button.dispatchEvent(event);		
-		
-		
-		</script>";
-	}
-}
-
-?>
-
 
 <?php 
 include (THEPAGESPATH.'/includes/footer.php');

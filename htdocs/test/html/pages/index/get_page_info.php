@@ -42,8 +42,7 @@ class Db{
 		   SELECT newinlib_itemcontent.id,newinlib_itemcontent.title,newinlib_itemcontent.content, newinlib_item.avatar_img_name 
 		   FROM newinlib_itemcontent 
 		   JOIN newinlib_item ON newinlib_itemcontent.item_id = newinlib_item.id
-		   ORDER BY id DESC LIMIT 300
-	   ');
+		   ORDER BY id DESC LIMIT 10');
     }
 
     public function events(){
@@ -51,7 +50,7 @@ class Db{
 	   	  SELECT events_eventcontent.id,events_eventcontent.title,events_eventcontent.content,events_event.start_date,events_event.end_date
 		   FROM events_eventcontent
 		   JOIN events_event ON events_eventcontent.event_id = events_event.id
-		   ORDER BY id DESC LIMIT 30');
+		   ORDER BY id DESC LIMIT 10');
 	}
 
 	public function news(){
